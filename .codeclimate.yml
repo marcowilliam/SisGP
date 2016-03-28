@@ -1,0 +1,94 @@
+languages:
+   Ruby: trlanguages:
+   Ruby: true
+   JavaScript: true
+   HTML: true
+   CSS: true
+exclude_paths:
+- "test/*"
+- "spec/*"
+- "config/*"
+- "db/*"
+- "app/controllers/inscriptions"
+
+engines:
+  rubocop:
+    enabled: true
+  golint:
+    enabled: true
+  gofmt:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+ratings:
+   paths:
+   - app/**
+   - lib/**
+   - "**.rb"
+   - "**.go"
+exclude_paths:
+- spec/**/*
+- vendor/**/*ue
+   JavaScript: true
+   HTML: true
+   CSS: true
+exclude_paths:
+- "test/*"
+- "spec/*"
+- "config/*"
+- "db/*"
+- "app/controllers/inscriptions"
+
+engines:
+  rubocop:
+    enabled: true
+  golint:
+    enabled: true
+  gofmt:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+ratings:
+   paths:
+   - app/**
+   - lib/**
+   - "**.rb"
+   - "**.go"
+exclude_paths:
+- spec/**/*
+- vendor/**/*languages:
+   Ruby: true
+   JavaScript: true
+   HTML: true
+   CSS: true
+exclude_paths:
+- "test/*"
+- "spec/*"
+- "config/*"
+- "db/*"
+- "app/controllers/inscriptions"
+
+engines:
+  rubocop:
+    enabled: true
+  golint:
+    enabled: true
+  gofmt:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+ratings:
+   paths:
+   - app/**
+   - lib/**
+   - "**.rb"
+   - "**.go"
+exclude_paths:
+- spec/**/*
+- vendor/**/*
