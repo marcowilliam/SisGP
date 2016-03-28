@@ -23,4 +23,5 @@ ratings:
   - "**.go"
 exclude_paths:
 - SisGPWeb/spec/**/*
+-SisGPmobile/**
 - "**/vendor/**/*"
