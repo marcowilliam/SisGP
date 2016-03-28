@@ -8,6 +8,7 @@ Ruby version  -> 2.2.1 <br/>
 Ionic Version -> 1.2.4<br/><br/>
 
 <a href="https://codeclimate.com/github/joao-henrique/SisGP"><img src="https://codeclimate.com/github/joao-henrique/SisGP/badges/gpa.svg" /></a>
+<br/>
 <a href="https://codeclimate.com/github/joao-henrique/SisGP/coverage"><img src="https://codeclimate.com/github/joao-henrique/SisGP/badges/coverage.svg" /></a><br/><br/>
 Anna Martins <br/>
 Rafael Akiyoshi <br/>
