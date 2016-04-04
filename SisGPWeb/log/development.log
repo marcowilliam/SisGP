@@ -27301,3 +27301,177 @@ Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702
 Started GET "/assets/roboto/Roboto-Regular-b5c9c23bd12593523a46d79dd0aee80e3226bbde4c9ac05fc30a95e2c1510de0.woff2" for 127.0.0.1 at 2016-04-04 12:32:48 -0300
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-04-04 13:20:07 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  [1m[35mProjeto Load (0.2ms)[0m  SELECT "projetos".* FROM "projetos"
+  Rendered projetos/index.html.erb within layouts/application (8.6ms)
+Completed 500 Internal Server Error in 276ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (File to import not found or unreadable: materialize.
+Load paths:
+  /home/joao/git/SisGP/SisGPWeb/app/assets/images
+  /home/joao/git/SisGP/SisGPWeb/app/assets/javascripts
+  /home/joao/git/SisGP/SisGPWeb/app/assets/stylesheets
+  /home/joao/git/SisGP/SisGPWeb/vendor/assets/javascripts
+  /home/joao/git/SisGP/SisGPWeb/vendor/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/turbolinks-2.5.3/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/jquery-rails-4.1.1/vendor/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/coffee-rails-4.1.1/lib/assets/javascripts):
+    3: <head>
+    4:   <title>SisGP</title>
+    5:     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    6:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    7:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/assets/stylesheets/application.scss:1
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___2796583758474947899_31765160'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (22.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (42.8ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-04-04 13:20:46 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  [1m[35mProjeto Load (0.2ms)[0m  SELECT "projetos".* FROM "projetos"
+  Rendered projetos/index.html.erb within layouts/application (8.2ms)
+Completed 500 Internal Server Error in 211ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (couldn't find file 'materialize-sprockets' with type 'application/javascript'):
+    3: <head>
+    4:   <title>SisGP</title>
+    5:     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    6:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    7:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/assets/javascripts/application.js:14
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__1477960987528801856_46896020'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (51.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (25.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (50.1ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-04-04 13:20:48 -0300
+Processing by ProjetosController#index as HTML
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (couldn't find file 'materialize-sprockets' with type 'application/javascript'):
+    3: <head>
+    4:   <title>SisGP</title>
+    5:     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    6:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    7:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/assets/javascripts/application.js:14
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__1477960987528801856_46896020'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.2ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-04-04 13:21:09 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjetosController#index as HTML
+  [1m[35mProjeto Load (0.2ms)[0m  SELECT "projetos".* FROM "projetos"
+  Rendered projetos/index.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (couldn't find file 'materialize/extras/nouislider' with type 'application/javascript'):
+    3: <head>
+    4:   <title>SisGP</title>
+    5:     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    6:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    7:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/assets/javascripts/application.js:15
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___1226974559047680094_34815840'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (22.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0@rails4.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (43.4ms)
+
+
+Started GET "/projetos" for 127.0.0.1 at 2016-04-04 13:21:17 -0300
+Processing by ProjetosController#index as HTML
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT "projetos".* FROM "projetos"[0m
+  Rendered projetos/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 860ms (Views: 858.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-04-04 13:21:18 -0300
+
+
+Started GET "/assets/application.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-04-04 13:21:18 -0300
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-04-04 13:21:18 -0300
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-04-04 13:21:18 -0300
+
+
+Started GET "/assets/projetos.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for 127.0.0.1 at 2016-04-04 13:21:18 -0300
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-04-04 13:21:18 -0300
+
+
+Started GET "/projetos/new" for 127.0.0.1 at 2016-04-04 13:21:24 -0300
+Processing by ProjetosController#new as HTML
+  Rendered projetos/_form.html.erb (12.6ms)
+  Rendered projetos/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.0ms)
