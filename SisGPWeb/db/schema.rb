@@ -11,15 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404003236) do
+ActiveRecord::Schema.define(version: 20160404182258) do
 
-  create_table "projetos", force: :cascade do |t|
+  create_table "atividades", force: :cascade do |t|
     t.string   "nome"
     t.text     "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "projeto_id"
   end
+
+  add_index "atividades", ["projeto_id"], name: "index_atividades_on_projeto_id"
+
+  create_table "projetos", force: :cascade do |t|
+    t.string   "nome"
+    t.text     "descricao"
+    t.date     "dataInicio"
+    t.date     "dataFim"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "atividades_id"
+  end
+
+  add_index "projetos", ["atividades_id"], name: "index_projetos_on_atividades_id"
 
 end
