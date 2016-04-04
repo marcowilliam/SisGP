@@ -1,5 +1,16 @@
+<script>
+$('.datepicker').pickadate({
+ selectMonths: true, // Creates a dropdown to control month
+ selectYears: 15 // Creates a dropdown of 15 years to control year
+});
+
+
+</script>
+
+
 <%= form_for(@projeto) do |f| %>
   <% if @projeto.errors.any? %>
+
     <div id="error_explanation">
       <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
 
@@ -11,23 +22,24 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="input-field col s12">
     <%= f.label :nome %><br>
     <%= f.text_field :nome %>
   </div>
-  <div class="field">
+  <div class="input-field col s12">
     <%= f.label :descricao %><br>
-    <%= f.text_area :descricao %>
+    <%= f.text_area :descricao, class:'materialize-textarea', length:'120' %>
   </div>
-  <div class="field">
+  <div class="input-field col s12" >
     <%= f.label :dataInicio %><br>
-    <%= f.date_select :dataInicio %>
+    <%= f.date_field :dataInicio, class:'datepicker' %>
   </div>
-  <div class="field">
+
+  <div class="input-field col s12">
     <%= f.label :dataFim %><br>
-    <%= f.date_select :dataFim %>
+    <%= f.date_field :dataFim, class:'datepicker' %><br />
   </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="btn waves-effect waves-light">
+    <i class="material-icons right">  <%= f.submit %>  </i>
   </div>
 <% end %>

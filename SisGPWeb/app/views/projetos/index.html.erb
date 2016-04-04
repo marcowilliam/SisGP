@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Projetos</h1>
+<h1>Listando Projetos</h1>
 
 <table>
   <thead>
@@ -20,9 +20,9 @@
         <td><%= projeto.descricao %></td>
         <td><%= projeto.dataInicio %></td>
         <td><%= projeto.dataFim %></td>
-        <td><%= link_to 'Show', projeto %></td>
-        <td><%= link_to 'Edit', edit_projeto_path(projeto) %></td>
-        <td><%= link_to 'Destroy', projeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', projeto,:class=>"waves-effect waves-light btn"  %></td>
+        <td><%= link_to 'Edit', edit_projeto_path(projeto),:class=>"waves-effect waves-light btn"  %></td>
+        <td><%= link_to 'Destroy', projeto, method: :delete, data: { confirm: 'Are you sure?' },:class=>"waves-effect waves-light btn"  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Projeto', new_projeto_path %>
+<%= link_to 'New Projeto', new_projeto_path,:class=>"waves-effect waves-light btn"  %>
