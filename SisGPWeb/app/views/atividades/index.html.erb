@@ -20,9 +20,10 @@
         <td><%= atividade.descricao %></td>
         <td><%= atividade.dataInicio %></td>
         <td><%= atividade.dataFim %></td>
-        <td><%= link_to 'Show', atividade %></td>
-        <td><%= link_to 'Edit', edit_atividade_path(atividade) %></td>
-        <td><%= link_to 'Destroy', atividade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= atividade.projeto %></td>
+        <td><%= link_to 'Show',projeto_atividade_path(atividade) %></td>
+        <td><%= link_to 'Edit' %></td>
+        <!-- <td><%= link_to 'Destroy',  {method: :delete} %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Atividade', new_atividade_path %>
+<%= link_to 'New Atividade' %>

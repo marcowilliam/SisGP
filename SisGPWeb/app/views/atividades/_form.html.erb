@@ -1,33 +1,63 @@
-<%= form_for(@atividade) do |f| %>
-  <% if @atividade.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@atividade.errors.count, "error") %> prohibited this atividade from being saved:</h2>
+  <script>
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+  </script>
 
-      <ul>
-      <% @atividade.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+
+
+  <%= form_for(:atividade) do |f| %>
+  <% if @atividade.errors.any? %>
+
+  <div id="error_explanation">
+    <h2><%= pluralize(@projeto.errors.count, "error") %>
+      prohibited this projeto from being saved:</h2>
+
+    <ul>
+      <% @projeto.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+
+
+  <div class="row center-align">
+    <div class="col s12 m6">
+      <div class="card-panel teal lighten-4">
+
+
+        <div class="input-field col s12">
+          <%= f.label :nome %><br>
+          <%= f.text_field :nome %>
+        </div>
+        <div class="input-field col s12">
+          <%= f.label :descricao %><br>
+          <%= f.text_area :descricao, class:'materialize-textarea', length:'120' %>
+        </div>
+        <div class="input-field col s12">
+          <%= f.label :dataInicio %><br>
+          <%= f.date_field :dataInicio, class:'datepicker' %>
+        </div>
+
+        <div class="input-field col s12">
+          <%= f.label :dataFim %><br>
+          <%= f.date_field :dataFim, class:'datepicker' %><br/>
+        </div>
+        <div class="input-field col s12">
+          <%= f.label :projeto %><br>
+          <%= f.text_field :projeto  %><br/>
+        </div>
+
+        <div class="btn waves-effect waves-light">
+          <%= link_to "Update"%>
+          <i class="material-icons right">send</i>
+        </div>
+
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :descricao %><br>
-    <%= f.text_area :descricao %>
-  </div>
-  <div class="field">
-    <%= f.label :dataInicio %><br>
-    <%= f.date_select :dataInicio %>
-  </div>
-  <div class="field">
-    <%= f.label :dataFim %><br>
-    <%= f.date_select :dataFim %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+  <% end %>

@@ -29,31 +29,41 @@
             <td></td>
             <td><%= link_to 'Show', projeto,:class=>"waves-effect waves-light btn"  %></td>
             <td><%= link_to 'Edit', edit_projeto_path(projeto),:class=>"waves-effect waves-light btn"  %></td>
-            <td><%= link_to 'Destroy', projeto, method: :delete, data: { confirm: 'Are you sure?' },:class=>"waves-effect waves-light btn"  %></td>
+            <td><%= link_to 'Criar Atividade', new_projeto_atividade_path(projeto) , :class=>"waves-effect waves-light btn"  %></td>
           </tr>
-
-          <ul class="collapsible" data-collapsible="accordion">
-            <li>
-
-            <div class="collapsible-header teal lighten-3">
-              <i class="material-icons">assignment</i>Listar tarefas
-            </div>
-            <div class="collapsible-body">
-                <% projeto.atividades.each do |atividade| %>
-
-                  <%= atividade.name  %>
-
-
-
-                <%end%>
-            </div>
-          </li>
-          </ul>
-
-
         </tbody>
 
+
+
       </table>
+
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header teal lighten-4">
+            <i class="material-icons">assignment</i>Listar tarefas
+          </div>
+          <div class="collapsible-body">
+            <% projeto.atividades.each do |atividade| %>
+            <div class="collection">
+              <div class="row collection-item teal accent-2">
+                <div class="col s1  ">Nome:
+                  <%= atividade.nome %>
+                </div>
+                <div class="col s1">Descrição:
+                  <%= atividade.descricao %>
+                </div>
+                <div class="col s1"><%= projeto.nome %></div>
+                <div class=" col s1 offset-s2"><%= link_to 'Show', :class=>"waves-effect waves btn"  %></div>
+                <div class="col s1">
+                  <%= link_to 'Edit', edit_projeto_atividade_path(projeto , atividade),:class=>"waves-effect waves-light btn"  %></div>
+              </div>
+            </div>
+            <%end%>
+          </div>
+        </li>
+      </ul>
+
+
     </div>
   </li>
   <% end %>
