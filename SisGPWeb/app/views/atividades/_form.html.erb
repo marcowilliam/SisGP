@@ -11,11 +11,11 @@
   <% if @atividade.errors.any? %>
 
   <div id="error_explanation">
-    <h2><%= pluralize(@projeto.errors.count, "error") %>
-      prohibited this projeto from being saved:</h2>
+    <h2><%= pluralize(@processo.errors.count, "error") %>
+      prohibited this processo from being saved:</h2>
 
     <ul>
-      <% @projeto.errors.full_messages.each do |message| %>
+      <% @processo.errors.full_messages.each do |message| %>
       <li><%= message %></li>
       <% end %>
     </ul>
@@ -47,8 +47,8 @@
           <%= f.date_field :dataFim, class:'datepicker' %><br/>
         </div>
         <div class="input-field col s12">
-          <%= f.label :projeto %><br>
-          <%= f.text_field :projeto  %><br/>
+          <%= f.label :processo %><br>
+          <%= f.text_field :processo  %><br/>
         </div>
 
         <div class="btn waves-effect waves-light">

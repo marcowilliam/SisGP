@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class ProjetosControllerTest < ActionController::TestCase
+class ProcessosControllerTest < ActionController::TestCase
   setup do
-    @projeto = projetos(:one)
+    @processo = processos(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:projetos)
+    assert_not_nil assigns(:processos)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class ProjetosControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create projeto" do
-    assert_difference('Projeto.count') do
-      post :create, projeto: { dataFim: @projeto.dataFim, dataInicio: @projeto.dataInicio, descricao: @projeto.descricao, nome: @projeto.nome }
+  test "should create processo" do
+    assert_difference('Processo.count') do
+      post :create, processo: { dataFim: @processo.dataFim, dataInicio: @processo.dataInicio, descricao: @processo.descricao, nome: @processo.nome }
     end
 
-    assert_redirected_to projeto_path(assigns(:projeto))
+    assert_redirected_to processo_path(assigns(:processo))
   end
 
-  test "should show projeto" do
-    get :show, id: @projeto
+  test "should show processo" do
+    get :show, id: @processo
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @projeto
+    get :edit, id: @processo
     assert_response :success
   end
 
-  test "should update projeto" do
-    patch :update, id: @projeto, projeto: { dataFim: @projeto.dataFim, dataInicio: @projeto.dataInicio, descricao: @projeto.descricao, nome: @projeto.nome }
-    assert_redirected_to projeto_path(assigns(:projeto))
+  test "should update processoprocesso" do
+    patch :update, id: @processo, processo: { dataFim: @processo.dataFim, dataInicio: @processo.dataInicio, descricao: @processo.descricao, nome: @processo.nome }
+    assert_redirected_to processo_path(assigns(:processo))
   end
 
-  test "should destroy projeto" do
-    assert_difference('Projeto.count', -1) do
-      delete :destroy, id: @projeto
+  test "should destroy processo" do
+    assert_difference('Processo.count', -1) do
+      delete :destroy, id: @processo
     end
 
-    assert_redirected_to projetos_path
+    assert_redirected_to processos_path
   end
 end

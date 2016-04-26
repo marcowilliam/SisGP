@@ -1,5 +1,5 @@
 class Atividade < ActiveRecord::Base
-  belongs_to :projeto
+  belongs_to :processo
 
 
 end

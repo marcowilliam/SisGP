@@ -1,6 +1,6 @@
-class CreateProjetos < ActiveRecord::Migration
+class CreateProcessos < ActiveRecord::Migration
   def change
-    create_table :projetos do |t|
+    create_table :processos do |t|
       t.string :nome
       t.text :descricao
       t.date :dataInicio

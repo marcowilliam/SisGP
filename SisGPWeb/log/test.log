@@ -1,0 +1,1270 @@
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "atividades" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "descricao" text, "dataInicio" date, "dataFim" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "projeto_id" integer) [0m
+  [1m[35m (0.6ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX "index_atividades_on_projeto_id" ON "atividades" ("projeto_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "projetos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "descricao" text, "dataInicio" date, "dataFim" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "atividades_id" integer) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_projetos_on_atividades_id" ON "projetos" ("atividades_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160404182258')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160404003236')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160404174734')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160404182231')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "atividades"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 12:55:24', '2016-04-26 12:55:24', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 12:55:24', '2016-04-26 12:55:24', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "projetos"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 12:55:24', '2016-04-26 12:55:24', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 12:55:24', '2016-04-26 12:55:24', 298486374)
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+AtividadesControllerTest: test_should_update_atividade
+------------------------------------------------------
+  [1m[36mAtividade Load (0.3ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+AtividadesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+AtividadesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+AtividadesControllerTest: test_should_show_atividade
+----------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+AtividadesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+AtividadesControllerTest: test_should_destroy_atividade
+-------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+AtividadesControllerTest: test_should_create_atividade
+------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ProjetosControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#new as HTML
+  Rendered projetos/_form.html.erb (25.6ms)
+  Rendered projetos/new.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 3743ms (Views: 3742.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+ProjetosControllerTest: test_should_destroy_projeto
+---------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+Processing by ProjetosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "projetos" WHERE "projetos"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projetos
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProjetosControllerTest: test_should_show_projeto
+------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered projetos/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ProjetosControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProjeto Load (0.0ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered projetos/_form.html.erb (3.2ms)
+  Rendered projetos/edit.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProjetosControllerTest: test_should_update_projeto
+--------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#update as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProjeto Load (0.0ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProjetosControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#index as HTML
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT "projetos".* FROM "projetos"[0m
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?  [["projeto_id", 298486374]]
+  [1m[36mAtividade Load (0.0ms)[0m  [1mSELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?[0m  [["projeto_id", 980190962]]
+  Rendered projetos/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProjetosControllerTest: test_should_create_projeto
+--------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+Processing by ProjetosController#create as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nome", "MyString"], ["descricao", "MyText"], ["dataInicio", "2016-04-03"], ["dataFim", "2016-04-03"], ["created_at", "2016-04-26 12:55:27.973220"], ["updated_at", "2016-04-26 12:55:27.973220"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projetos/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.1ms)[0m  [1mDELETE FROM "atividades"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:01:39', '2016-04-26 13:01:39', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:01:39', '2016-04-26 13:01:39', 298486374)[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "projetos"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:01:39', '2016-04-26 13:01:39', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:01:39', '2016-04-26 13:01:39', 298486374)
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+ProjetosControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#new as HTML
+  Rendered projetos/_form.html.erb (23.0ms)
+  Rendered projetos/new.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 281ms (Views: 280.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProjetosControllerTest: test_should_destroy_projeto
+---------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+Processing by ProjetosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "projetos" WHERE "projetos"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProjetosControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered projetos/_form.html.erb (2.2ms)
+  Rendered projetos/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 6ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_update_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#update as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projetos/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ProjetosControllerTest: test_should_show_projeto
+------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered projetos/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjetosControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#index as HTML
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT "projetos".* FROM "projetos"
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?[0m  [["projeto_id", 298486374]]
+  [1m[35mAtividade Load (0.0ms)[0m  SELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?  [["projeto_id", 980190962]]
+  Rendered projetos/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_create_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+Processing by ProjetosController#create as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "MyString"], ["descricao", "MyText"], ["dataInicio", "2016-04-03"], ["dataFim", "2016-04-03"], ["created_at", "2016-04-26 13:01:39.640149"], ["updated_at", "2016-04-26 13:01:39.640149"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190963
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+AtividadesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+AtividadesControllerTest: test_should_update_atividade
+------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+AtividadesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+AtividadesControllerTest: test_should_create_atividade
+------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+AtividadesControllerTest: test_should_show_atividade
+----------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+AtividadesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mAtividade Load (18.2ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#new as HTML
+  Rendered atividades/_form.html.erb (8.7ms)
+  Rendered atividades/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+AtividadesControllerTest: test_should_destroy_atividade
+-------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "atividades"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:06:00', '2016-04-26 13:06:00', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:06:00', '2016-04-26 13:06:00', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "projetos"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:06:00', '2016-04-26 13:06:00', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:06:00', '2016-04-26 13:06:00', 298486374)
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+ProjetosControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#new as HTML
+  Rendered projetos/_form.html.erb (24.0ms)
+  Rendered projetos/new.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 298ms (Views: 297.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProjetosControllerTest: test_should_destroy_projeto
+---------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+Processing by ProjetosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "projetos" WHERE "projetos"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+ProjetosControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered projetos/_form.html.erb (2.9ms)
+  Rendered projetos/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjetosControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#index as HTML
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT "projetos".* FROM "projetos"
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?[0m  [["projeto_id", 298486374]]
+  [1m[35mAtividade Load (0.0ms)[0m  SELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?  [["projeto_id", 980190962]]
+  Rendered projetos/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ProjetosControllerTest: test_should_show_projeto
+------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered projetos/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_create_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+Processing by ProjetosController#create as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "MyString"], ["descricao", "MyText"], ["dataInicio", "2016-04-03"], ["dataFim", "2016-04-03"], ["created_at", "2016-04-26 13:06:01.209947"], ["updated_at", "2016-04-26 13:06:01.209947"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_update_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#update as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projetos/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+AtividadesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#new as HTML
+  Rendered atividades/_form.html.erb (29.2ms)
+  Rendered atividades/new.html.erb within layouts/application (31.7ms)
+Completed 200 OK in 39ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+AtividadesControllerTest: test_should_destroy_atividade
+-------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+AtividadesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+AtividadesControllerTest: test_should_show_atividade
+----------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+AtividadesControllerTest: test_should_update_atividade
+------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+AtividadesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+AtividadesControllerTest: test_should_create_atividade
+------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "atividades"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:09:15', '2016-04-26 13:09:15', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:09:15', '2016-04-26 13:09:15', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "projetos"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:09:15', '2016-04-26 13:09:15', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:09:15', '2016-04-26 13:09:15', 298486374)
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+AtividadesControllerTest: test_should_create_atividade
+------------------------------------------------------
+  [1m[36mAtividade Load (0.6ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "atividades"
+Processing by AtividadesController#create as HTML
+  Parameters: {"atividade"=>{"dataFim"=>"2016-04-04", "dataInicio"=>"2016-04-04", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "atividades" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-04-26 13:09:15.999549"], ["updated_at", "2016-04-26 13:09:15.999549"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+AtividadesControllerTest: test_should_destroy_atividade
+-------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+Processing by AtividadesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "atividades" WHERE "atividades"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+AtividadesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by AtividadesController#new as HTML
+  Rendered atividades/_form.html.erb (26.4ms)
+  Rendered atividades/new.html.erb within layouts/application (32.9ms)
+Completed 200 OK in 336ms (Views: 335.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+AtividadesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#index as HTML
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT "atividades".* FROM "atividades"
+  Rendered atividades/index.html.erb within layouts/application (21.9ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+AtividadesControllerTest: test_should_update_atividade
+------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#update as HTML
+  Parameters: {"id"=>"980190962", "atividade"=>{"dataFim"=>"2016-04-04", "dataInicio"=>"2016-04-04", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[35mAtividade Load (0.0ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+AtividadesControllerTest: test_should_show_atividade
+----------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mAtividade Load (0.0ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered atividades/show.html.erb within layouts/application (30.9ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+AtividadesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mAtividade Load (0.0ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered atividades/_form.html.erb (2.9ms)
+  Rendered atividades/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+ProjetosControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered projetos/_form.html.erb (3.7ms)
+  Rendered projetos/edit.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjetosControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#index as HTML
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT "projetos".* FROM "projetos"
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?[0m  [["projeto_id", 298486374]]
+  [1m[35mAtividade Load (0.0ms)[0m  SELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?  [["projeto_id", 980190962]]
+  Rendered projetos/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+ProjetosControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#new as HTML
+  Rendered projetos/_form.html.erb (2.1ms)
+  Rendered projetos/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 6ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProjetosControllerTest: test_should_show_projeto
+------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProjeto Load (0.0ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered projetos/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProjetosControllerTest: test_should_update_projeto
+--------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#update as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190962
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProjetosControllerTest: test_should_destroy_projeto
+---------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+Processing by ProjetosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "projetos" WHERE "projetos"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_create_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+Processing by ProjetosController#create as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "MyString"], ["descricao", "MyText"], ["dataInicio", "2016-04-03"], ["dataFim", "2016-04-03"], ["created_at", "2016-04-26 13:09:16.519514"], ["updated_at", "2016-04-26 13:09:16.519514"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.2ms)[0m  [1mDELETE FROM "atividades"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:13:40', '2016-04-26 13:13:40', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:13:40', '2016-04-26 13:13:40', 298486374)[0m
+  [1m[35mFixture Delete (0.8ms)[0m  DELETE FROM "projetos"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:13:40', '2016-04-26 13:13:40', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:13:40', '2016-04-26 13:13:40', 298486374)
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_create_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+Processing by ProjetosController#create as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "MyString"], ["descricao", "MyText"], ["dataInicio", "2016-04-03"], ["dataFim", "2016-04-03"], ["created_at", "2016-04-26 13:13:40.794266"], ["updated_at", "2016-04-26 13:13:40.794266"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190963
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ProjetosControllerTest: test_should_show_projeto
+------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered projetos/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 250ms (Views: 247.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+ProjetosControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#new as HTML
+  Rendered projetos/_form.html.erb (23.1ms)
+  Rendered projetos/new.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 34ms (Views: 33.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProjetosControllerTest: test_should_update_projeto
+--------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#update as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProjeto Load (0.0ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProjetosControllerTest: test_should_destroy_projeto
+---------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+Processing by ProjetosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "projetos" WHERE "projetos"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProjetosControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered projetos/_form.html.erb (2.0ms)
+  Rendered projetos/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjetosControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#index as HTML
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT "projetos".* FROM "projetos"
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?[0m  [["projeto_id", 298486374]]
+  [1m[35mAtividade Load (0.0ms)[0m  SELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?  [["projeto_id", 980190962]]
+  Rendered projetos/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 21ms (Views: 20.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+AtividadesControllerTest: test_should_show_atividade
+----------------------------------------------------
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered atividades/show.html.erb within layouts/application (13.9ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------
+AtividadesControllerTest: test_should_destroy_atividade
+-------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "atividades"
+Processing by AtividadesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mAtividade Load (0.0ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "atividades" WHERE "atividades"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+AtividadesControllerTest: test_should_update_atividade
+------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#update as HTML
+  Parameters: {"atividade"=>{"dataFim"=>"2016-04-04", "dataInicio"=>"2016-04-04", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mAtividade Load (0.0ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+AtividadesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#index as HTML
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT "atividades".* FROM "atividades"
+  Rendered atividades/index.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------------------------
+AtividadesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#new as HTML
+  Rendered atividades/_form.html.erb (5.5ms)
+  Rendered atividades/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+AtividadesControllerTest: test_should_create_atividade
+------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+Processing by AtividadesController#create as HTML
+  Parameters: {"atividade"=>{"dataFim"=>"2016-04-04", "dataInicio"=>"2016-04-04", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "atividades" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-04-26 13:13:41.230265"], ["updated_at", "2016-04-26 13:13:41.230265"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+AtividadesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mAtividade Load (0.0ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered atividades/_form.html.erb (2.7ms)
+  Rendered atividades/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "atividades"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:15:35', '2016-04-26 13:15:35', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:15:35', '2016-04-26 13:15:35', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "projetos"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:15:35', '2016-04-26 13:15:35', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:15:35', '2016-04-26 13:15:35', 298486374)
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+AtividadesControllerTest: test_should_show_atividade
+----------------------------------------------------
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by AtividadesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered atividades/show.html.erb within layouts/application (12.5ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------
+AtividadesControllerTest: test_should_create_atividade
+------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "atividades"
+Processing by AtividadesController#create as HTML
+  Parameters: {"atividade"=>{"dataFim"=>"2016-04-04", "dataInicio"=>"2016-04-04", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "atividades" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-04-26 13:15:35.328894"], ["updated_at", "2016-04-26 13:15:35.328894"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+AtividadesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by AtividadesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mAtividade Load (0.0ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered atividades/_form.html.erb (27.7ms)
+  Rendered atividades/edit.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 287ms (Views: 286.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+AtividadesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by AtividadesController#index as HTML
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT "atividades".* FROM "atividades"[0m
+  Rendered atividades/index.html.erb within layouts/application (33.3ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+AtividadesControllerTest: test_should_update_atividade
+------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by AtividadesController#update as HTML
+  Parameters: {"atividade"=>{"dataFim"=>"2016-04-04", "dataInicio"=>"2016-04-04", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+AtividadesControllerTest: test_should_destroy_atividade
+-------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+Processing by AtividadesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mAtividade Load (0.0ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "atividades" WHERE "atividades"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+AtividadesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by AtividadesController#new as HTML
+  Rendered atividades/_form.html.erb (2.8ms)
+  Rendered atividades/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_create_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+Processing by ProjetosController#create as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "MyString"], ["descricao", "MyText"], ["dataInicio", "2016-04-03"], ["dataFim", "2016-04-03"], ["created_at", "2016-04-26 13:15:35.696542"], ["updated_at", "2016-04-26 13:15:35.696542"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProjetosControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered projetos/_form.html.erb (4.0ms)
+  Rendered projetos/edit.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ProjetosControllerTest: test_should_show_projeto
+------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered projetos/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+ProjetosControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#new as HTML
+  Rendered projetos/_form.html.erb (2.3ms)
+  Rendered projetos/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProjetosControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#index as HTML
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT "projetos".* FROM "projetos"[0m
+  [1m[35mAtividade Load (0.2ms)[0m  SELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?  [["projeto_id", 298486374]]
+  [1m[36mAtividade Load (0.0ms)[0m  [1mSELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?[0m  [["projeto_id", 980190962]]
+  Rendered projetos/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProjetosControllerTest: test_should_destroy_projeto
+---------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+Processing by ProjetosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "projetos" WHERE "projetos"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_update_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#update as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projetos/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.9ms)[0m  [1mDELETE FROM "atividades"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:20:29', '2016-04-26 13:20:29', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:20:29', '2016-04-26 13:20:29', 298486374)[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "projetos"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:20:29', '2016-04-26 13:20:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:20:29', '2016-04-26 13:20:29', 298486374)
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_update_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#update as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projetos/980190962
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+ProjetosControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#index as HTML
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT "projetos".* FROM "projetos"
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?[0m  [["projeto_id", 298486374]]
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?  [["projeto_id", 980190962]]
+  Rendered projetos/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 293ms (Views: 292.3ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+ProjetosControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#new as HTML
+  Rendered projetos/_form.html.erb (22.6ms)
+  Rendered projetos/new.html.erb within layouts/application (28.6ms)
+Completed 200 OK in 33ms (Views: 32.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ProjetosControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProjeto Load (0.0ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered projetos/_form.html.erb (2.1ms)
+  Rendered projetos/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProjetosControllerTest: test_should_show_projeto
+------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProjeto Load (0.0ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered projetos/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProjetosControllerTest: test_should_destroy_projeto
+---------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+Processing by ProjetosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "projetos" WHERE "projetos"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_create_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "projetos"
+Processing by ProjetosController#create as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "MyString"], ["descricao", "MyText"], ["dataInicio", "2016-04-03"], ["dataFim", "2016-04-03"], ["created_at", "2016-04-26 13:20:29.601634"], ["updated_at", "2016-04-26 13:20:29.601634"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190963
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+AtividadesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mAtividade Load (0.3ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+AtividadesControllerTest: test_should_destroy_atividade
+-------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+AtividadesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+AtividadesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+AtividadesControllerTest: test_should_update_atividade
+------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+AtividadesControllerTest: test_should_show_atividade
+----------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+AtividadesControllerTest: test_should_create_atividade
+------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.9ms)[0m  [1mDELETE FROM "atividades"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:23:24', '2016-04-26 13:23:24', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-26 13:23:24', '2016-04-26 13:23:24', 298486374)[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "projetos"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:23:24', '2016-04-26 13:23:24', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-26 13:23:24', '2016-04-26 13:23:24', 298486374)
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_create_projeto
+--------------------------------------------------
+  [1m[36mProjeto Load (0.5ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+Processing by ProjetosController#create as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "MyString"], ["descricao", "MyText"], ["dataInicio", "2016-04-03"], ["dataFim", "2016-04-03"], ["created_at", "2016-04-26 13:23:24.170761"], ["updated_at", "2016-04-26 13:23:24.170761"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190963
+Completed 302 Found in 10ms (ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ProjetosControllerTest: test_should_show_projeto
+------------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered projetos/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 356ms (Views: 354.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+ProjetosControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#new as HTML
+  Rendered projetos/_form.html.erb (56.1ms)
+  Rendered projetos/new.html.erb within layouts/application (62.2ms)
+Completed 200 OK in 69ms (Views: 68.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ProjetosControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[35mProjeto Load (0.3ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered projetos/_form.html.erb (3.6ms)
+  Rendered projetos/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProjetosControllerTest: test_should_update_projeto
+--------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjetosController#update as HTML
+  Parameters: {"projeto"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProjetosControllerTest: test_should_destroy_projeto
+---------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+Processing by ProjetosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProjeto Load (0.0ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "projetos" WHERE "projetos"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projetos
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projetos"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+ProjetosControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProjeto Load (0.2ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjetosController#index as HTML
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT "projetos".* FROM "projetos"
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?[0m  [["projeto_id", 298486374]]
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT "atividades".* FROM "atividades" WHERE "atividades"."projeto_id" = ?  [["projeto_id", 980190962]]
+  Rendered projetos/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 26ms (Views: 25.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+AtividadesControllerTest: test_should_show_atividade
+----------------------------------------------------
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+AtividadesControllerTest: test_should_create_atividade
+------------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+AtividadesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+AtividadesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+AtividadesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------
+AtividadesControllerTest: test_should_destroy_atividade
+-------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "atividades"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------
+AtividadesControllerTest: test_should_update_atividade
+------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction

@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  resources :projetos do
-  resources :atividades
-  end
+  resources :processos do
+    resources :atividades
+end
+  root 'processos#index'
+
+  #get '/atividade/nova', to: 'atividades#new'
+  #get '/atividade/update/:id', to: 'atividades#update'
+  #get '/atividade/destroy/:id', to: 'atividades#destroy'
+  #get '/atividade/edit/:id', to: 'atividades#edit'
+  #get '/atividade/show/:id', to: 'atividades#show'
+  #get '/atividade/index', to: 'atividades#index'
+  #get '/atividade/create', to: 'atividades#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

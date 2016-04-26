@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listando Projetos</h1>
+<h1>Listando Processos</h1>
 
 <ul class="collapsible" data-collapsible="accordion">
-  <% @projetos.each do |projeto| %>
+  <% @processos.each do |processo| %>
   <li>
     <div class="collapsible-header teal lighten-2">
-      <i class="material-icons">tab</i><%= projeto.nome%></div>
+      <i class="material-icons">tab</i><%= processo.nome%></div>
 
     <div class="collapsible-body">
       <table >
@@ -22,14 +22,14 @@
 
         <tbody >
           <tr>
-            <td><%= projeto.nome %></td>
-            <td><%= projeto.descricao %></td>
-            <td><%= projeto.dataInicio %></td>
-            <td><%= projeto.dataFim %></td>
+            <td><%= processo.nome %></td>
+            <td><%= processo.descricao %></td>
+            <td><%= processo.dataInicio %></td>
+            <td><%= processo.dataFim %></td>
             <td></td>
-            <td><%= link_to 'Show', projeto,:class=>"waves-effect waves-light btn"  %></td>
-            <td><%= link_to 'Edit', edit_projeto_path(projeto),:class=>"waves-effect waves-light btn"  %></td>
-            <td><%= link_to 'Criar Atividade', new_projeto_atividade_path(projeto) , :class=>"waves-effect waves-light btn"  %></td>
+            <td><%= link_to 'Show', processo,:class=>"waves-effect waves-light btn"  %></td>
+            <td><%= link_to 'Edit', edit_processo_path(processo),:class=>"waves-effect waves-light btn"  %></td>
+            <td><%= link_to 'Criar Atividade', new_processo_atividade_path(processo) , :class=>"waves-effect waves-light btn"  %></td>
           </tr>
         </tbody>
 
@@ -43,7 +43,7 @@
             <i class="material-icons">assignment</i>Listar tarefas
           </div>
           <div class="collapsible-body">
-            <% projeto.atividades.each do |atividade| %>
+            <% processo.atividades.each do |atividade| %>
             <div class="collection">
               <div class="row collection-item teal accent-2">
                 <div class="col s1  ">Nome:
@@ -52,10 +52,10 @@
                 <div class="col s1">Descrição:
                   <%= atividade.descricao %>
                 </div>
-                <div class="col s1"><%= projeto.nome %></div>
+                <div class="col s1"><%= processo.nome %></div>
                 <div class=" col s1 offset-s2"><%= link_to 'Show', :class=>"waves-effect waves btn"  %></div>
                 <div class="col s1">
-                  <%= link_to 'Edit', edit_projeto_atividade_path(projeto , atividade),:class=>"waves-effect waves-light btn"  %></div>
+                  <%= link_to 'Edit', edit_processo_atividade_path(processo , atividade),:class=>"waves-effect waves-light btn"  %></div>
               </div>
             </div>
             <%end%>
@@ -71,4 +71,4 @@
 
 <br>
 
-<%= link_to 'New Projeto', new_projeto_path,:class=>"waves-effect waves-light btn"  %>
+<%= link_to 'New Processo', new_processo_path,:class=>"waves-effect waves-light btn"  %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @processo.nome %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @processo.descricao %>
+</p>
+
+<p>
+  <strong>Datainicio:</strong>
+  <%= @processo.dataInicio %>
+</p>
+
+<p>
+  <strong>Datafim:</strong>
+  <%= @processo.dataFim %>
+</p>
+
+<%= link_to 'Edit', edit_processo_path(@processo),:class=>"waves-effect waves-light btn"  %> |
+<%= link_to 'Back', processos_path ,:class=>"waves-effect waves-light btn"  %>

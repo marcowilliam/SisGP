@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(version: 20160404182258) do
     t.text     "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "projeto_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "processo_id"
   end
 
-  add_index "atividades", ["projeto_id"], name: "index_atividades_on_projeto_id"
+  add_index "atividades", ["processo_id"], name: "index_atividades_on_processo_id"
 
-  create_table "projetos", force: :cascade do |t|
+  create_table "processos", force: :cascade do |t|
     t.string   "nome"
     t.text     "descricao"
     t.date     "dataInicio"
@@ -35,6 +35,6 @@ ActiveRecord::Schema.define(version: 20160404182258) do
     t.integer  "atividades_id"
   end
 
-  add_index "projetos", ["atividades_id"], name: "index_projetos_on_atividades_id"
+  add_index "processos", ["atividades_id"], name: "index_processos_on_atividades_id"
 
 end
