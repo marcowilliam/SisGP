@@ -2,7 +2,7 @@
 ### SisGP<br/><br/>
 
 A collaborative work for the Software Design course of the University of Brasilia<br/>
-Project license: AGPL v3<br/><br/>
+Project license: AGPL v3 (Read LICENSE.md file)<br/><br/>
 
 Rails version -> 4.2.5.1<br/>
 Ruby version  -> 2.2.1 <br/>
