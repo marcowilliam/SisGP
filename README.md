@@ -12,7 +12,7 @@ Ionic Version -> 1.2.4<br/><br/>
 <br/>
 <a href="https://codeclimate.com/github/joao-henrique/SisGP/coverage"><img src="https://codeclimate.com/github/joao-henrique/SisGP/badges/coverage.svg" /></a><br/><br/>
 
-For more information go to our <a href="https://github.com/joao-henrique/SisGP/wiki">wiki</a><br/><br/>
+For more information go to our <a href="https://github.com/DesenhoDeSofwareUNB/SisGP/wiki">wiki</a><br/><br/>
 
 Anna Martins <br/>
 Rafael Akiyoshi <br/>
