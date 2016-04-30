@@ -1706,3 +1706,145 @@ AtividadesControllerTest: test_should_create_atividade
   [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
   [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.9ms)[0m  [1mDELETE FROM "atividades"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-30 01:12:55', '2016-04-30 01:12:55', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-04-30 01:12:55', '2016-04-30 01:12:55', 298486374)[0m
+  [1m[35mFixture Delete (0.9ms)[0m  DELETE FROM "processos"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "processos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-30 01:12:55', '2016-04-30 01:12:55', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "processos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-04-30 01:12:55', '2016-04-30 01:12:55', 298486374)
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+AtividadesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+AtividadesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------
+AtividadesControllerTest: test_should_destroy_atividade
+-------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "atividades"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+AtividadesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+AtividadesControllerTest: test_should_show_atividade
+----------------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+AtividadesControllerTest: test_should_create_atividade
+------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "atividades"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------
+AtividadesControllerTest: test_should_update_atividade
+------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+ProcessosControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[35mProcesso Load (0.2ms)[0m  SELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProcessosController#index as HTML
+  [1m[36mProcesso Load (0.1ms)[0m  [1mSELECT "processos".* FROM "processos"[0m
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT "atividades".* FROM "atividades" WHERE "atividades"."processo_id" = ?  [["processo_id", 298486374]]
+  [1m[36mAtividade Load (0.0ms)[0m  [1mSELECT "atividades".* FROM "atividades" WHERE "atividades"."processo_id" = ?[0m  [["processo_id", 980190962]]
+  Rendered processos/index.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 4888ms (Views: 4887.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+ProcessosControllerTest: test_should_destroy_processo
+-----------------------------------------------------
+  [1m[35mProcesso Load (0.1ms)[0m  SELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "processos"[0m
+Processing by ProcessosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProcesso Load (0.0ms)[0m  SELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "processos" WHERE "processos"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/processos/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "processos"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+ProcessosControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mProcesso Load (0.1ms)[0m  [1mSELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProcessosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProcesso Load (0.0ms)[0m  SELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered processos/_form.html.erb (28.4ms)
+  Rendered processos/edit.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 38ms (Views: 37.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProcessosControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mProcesso Load (0.1ms)[0m  [1mSELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProcessosController#new as HTML
+  Rendered processos/_form.html.erb (2.2ms)
+  Rendered processos/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------
+ProcessosControllerTest: test_should_update_processoprocesso
+------------------------------------------------------------
+  [1m[35mProcesso Load (0.1ms)[0m  SELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProcessosController#update as HTML
+  Parameters: {"processo"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProcesso Load (0.1ms)[0m  [1mSELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/processos/980190962
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+ProcessosControllerTest: test_should_create_processo
+----------------------------------------------------
+  [1m[35mProcesso Load (0.1ms)[0m  SELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "processos"[0m
+Processing by ProcessosController#create as HTML
+  Parameters: {"processo"=>{"dataFim"=>"2016-04-03", "dataInicio"=>"2016-04-03", "descricao"=>"MyText", "nome"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "processos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["nome", "MyString"], ["descricao", "MyText"], ["dataInicio", "2016-04-03"], ["dataFim", "2016-04-03"], ["created_at", "2016-04-30 01:13:00.259701"], ["updated_at", "2016-04-30 01:13:00.259701"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/processos/980190963
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "processos"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProcessosControllerTest: test_should_show_processo
+--------------------------------------------------
+  [1m[35mProcesso Load (0.1ms)[0m  SELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProcessosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProcesso Load (0.0ms)[0m  [1mSELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered processos/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
