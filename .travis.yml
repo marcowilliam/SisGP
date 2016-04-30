@@ -21,3 +21,6 @@ branches:
   only:
 
     - master
+
+notifications:
+  slack: sisgp:ZLP4zzYc0XwS6yN4F1HkLjQM
