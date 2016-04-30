@@ -8,7 +8,7 @@ script:
   - bundle install
   - bundle exec rake db:drop
   - bundle exec rake db:migrate
-  - bundle exec rake spec
+  - rake test
 
 rvm:
   - 2.2.3
