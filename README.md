@@ -12,7 +12,7 @@ Ionic Version -> 1.2.4<br/><br/>
 <br/>
 <a href="https://codeclimate.com/github/DesenhoDeSofwareUNB/SisGP"><img src="https://codeclimate.com/github/DesenhoDeSofwareUNB/SisGP/badges/issue_count.svg" /></a>
 <br/>
-<a href='https://coveralls.io/github/DesenhoDeSofwareUNB/SisGP?branch=master'><img src='https://coveralls.io/repos/github/DesenhoDeSofwareUNB/SisGP/badge.svg?branch=master' alt='Coverage Status' /></a>
+[![Coverage Status](https://coveralls.io/repos/github/DesenhoDeSofwareUNB/SisGP/badge.svg?branch=master)](https://coveralls.io/github/DesenhoDeSofwareUNB/SisGP?branch=master)
 <br/>
 [![Build Status](https://travis-ci.org/DesenhoDeSofwareUNB/SisGP.svg?branch=master)](https://travis-ci.org/DesenhoDeSofwareUNB/SisGP)
 
