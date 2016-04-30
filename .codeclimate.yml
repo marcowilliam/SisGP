@@ -4,11 +4,11 @@ engines:
     checks:
      Rubocop/Metrics/ClassLength:
        enabled: false
-    Rubocop/Metrics/MethodLength:
+     Rubocop/Metrics/MethodLength:
        enabled: false
-    Rubocop/Metrics/ModuleLength:
+     Rubocop/Metrics/ModuleLength:
        enabled: false
-    Rubocop/Metrics/BlockNesting:
+     Rubocop/Metrics/BlockNesting:
        enabled: false
   duplication:
     enabled: true
