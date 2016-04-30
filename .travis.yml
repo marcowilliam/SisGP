@@ -1,5 +1,8 @@
 language: ruby
 
+before_install: 
+  cd SisGPWeb
+  
 script:
   - bundle exec spring binstub --all
   - bundle install
