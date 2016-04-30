@@ -1,19 +1,19 @@
 class UsuarioController < ApplicationController
   def new
-	  @user = User.new
+	  @usuario = Usuario.new
   end
   def create
-	  @user = User.new(user_params)
-	  if @user.save
-		  redirect_to @user, notice: "Usuário foi criado com sucesso!"
-		  sign_in(@user)
+	  @usuario = Usuario.new(usuario_params)
+	  if @usuario.save
+		  redirect_to @usuario, notice: "Usuário foi criado com sucesso!"
+		  sign_in(@usuario)
 	  else
 		  render action: :new
 	  end
   end
   private
-  def user_params
-	  params.require(:user).permit(:nome,:email,:password, :password_confirmation, :login, :telefone)
+  def ususuario_params
+	  params.require(:usuario).permit(:nome,:email,:password, :password_confirmation, :login, :telefone)
   end
 
 end

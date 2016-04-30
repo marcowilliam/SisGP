@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'usuario/new'
-
+  resources :usuarios
   resources :processos do
     resources :atividades
 end
