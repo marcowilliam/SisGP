@@ -8,7 +8,7 @@ script:
   - bundle install
   - bundle exec rake db:drop
   - bundle exec rake db:migrate
-  - rake test
+  - bundle exec rake test
 
 rvm:
   - 2.2.3
@@ -21,3 +21,6 @@ branches:
   only:
 
     - master
+
+notifications:
+  slack: sisgp:ZLP4zzYc0XwS6yN4F1HkLjQM
