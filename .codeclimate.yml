@@ -1,20 +1,21 @@
 engines:
   rubocop:
     enabled: true
-    #checks:
-    # Rubocop/Metrics/ClassLength:
-    #   enabled: false
-  eslint:
-    enabled: true
-  csslint:
-    enabled: true
+    checks:
+     Rubocop/Metrics/ClassLength:
+       enabled: false
+    Rubocop/Metrics/MethodLength:
+       enabled: false
+    Rubocop/Metrics/ModuleLength:
+       enabled: false
+    Rubocop/Metrics/BlockNesting:
+       enabled: false
   duplication:
     enabled: true
     config:
       languages:
       - ruby
-        #mass_threshold: 30
-      - javascript
+        mass_threshold: 18
 ratings:
   paths:
   - SisGPWeb/app/**
@@ -23,4 +24,5 @@ ratings:
   - "**.go"
 exclude_paths:
 - SisGPWeb/spec/**/*
+- SisGPmobile/**
 - "**/vendor/**/*"
