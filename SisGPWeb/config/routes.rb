@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'usuario/new'
+
   resources :processos do
     resources :atividades
 end
