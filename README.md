@@ -8,9 +8,11 @@ Rails version -> 4.2.5.1<br/>
 Ruby version  -> 2.2.1 <br/>
 Ionic Version -> 1.2.4<br/><br/>
 
-<a href="https://codeclimate.com/github/joao-henrique/SisGP"><img src="https://codeclimate.com/github/joao-henrique/SisGP/badges/gpa.svg" /></a>
+<a href="https://codeclimate.com/github/DesenhoDeSofwareUNB/SisGP"><img src="https://codeclimate.com/github/DesenhoDeSofwareUNB/SisGP/badges/gpa.svg" /></a>
 <br/>
-<a href="https://codeclimate.com/github/joao-henrique/SisGP/coverage"><img src="https://codeclimate.com/github/joao-henrique/SisGP/badges/coverage.svg" /></a><br/><br/>
+<a href="https://codeclimate.com/github/DesenhoDeSofwareUNB/SisGP/coverage"><img src="https://codeclimate.com/github/DesenhoDeSofwareUNB/SisGP/badges/coverage.svg" /></a>
+<br/>
+<a href="https://codeclimate.com/github/DesenhoDeSofwareUNB/SisGP"><img src="https://codeclimate.com/github/DesenhoDeSofwareUNB/SisGP/badges/issue_count.svg" /></a>
 
 For more information go to our <a href="https://github.com/DesenhoDeSofwareUNB/SisGP/wiki">wiki</a><br/><br/>
 
