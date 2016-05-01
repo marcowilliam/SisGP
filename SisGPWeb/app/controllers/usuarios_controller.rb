@@ -1,4 +1,5 @@
 class UsuariosController < ApplicationController
+  before_action :block_access, except: [:destroy]
   def new
 	  @usuario = Usuario.new
   end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :atividades
 end
 
+  get '/dashboard' => 'processos#index', as: 'dashboard'
   get 'static_pages/home' => 'static_pages#home'
   get 'sessions/new'
   get 'usuarios/new' => 'usuarios#new'

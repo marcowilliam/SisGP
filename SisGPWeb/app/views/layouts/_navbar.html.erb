@@ -1,7 +1,12 @@
 
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Logo</a>
+    <% if logged_in? %>
+      <%= link_to "SisGP" , '/dashboard', :class => "brand-logo" %>
+    <% else %>
+      <%= link_to "SisGP" , root_path, :class => "brand-logo" %>
+    <%end%>
+
       <ul class="right hide-on-med-and-down">
       <% if logged_in? %>
         <li><%= link_to "Bem vindo " + current_user.nome , current_user %></li>
