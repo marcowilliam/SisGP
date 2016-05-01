@@ -1,7 +1,7 @@
 <%= form_for :session, url: sign_in_path do |f| %>
 	<div class="field">
-		<%= f.label :login %><br />
-		<%= f.text_field :login, autofocus: true %>
+		<%= f.label :email %><br />
+		<%= f.email_field :email, autofocus: true %>
 	</div>
 
 	<div class="field">
@@ -11,7 +11,7 @@
 	<div class="actions">
 		<%= f.submit "Log in" %>
 	</div>
-	<p>New user? <%= link_to "Sign up now!", 'usuario/new' %></p>
+	<p>Não possui login? <%= link_to "Crie sua conta agora mesmo!", new_usuario_path %></p>
 <% end %>
 
 

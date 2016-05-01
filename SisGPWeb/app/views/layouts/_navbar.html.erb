@@ -3,7 +3,13 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Logo</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
+      <% if logged_in? %>
+        <li><%= link_to "Bem vindo " + current_user.nome , current_user %></li>
+        <li><%= link_to "Sair" , sign_out_path %></li>
+      <% else %>
+         <li><%= link_to "Log in", sign_in_path %></li>
+      <%end%>
+
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
