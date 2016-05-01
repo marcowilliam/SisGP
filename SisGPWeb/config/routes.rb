@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resources :processos do
     resources :atividades
 end
+
   get 'static_pages/home' => 'static_pages#home'
   get 'sessions/new'
   get 'usuario/new'
+  root 'static_pages#home'
 
 
   #get '/atividade/nova', to: 'atividades#new'
