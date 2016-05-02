@@ -26,7 +26,7 @@ class ProcessosController < OrganizacaoInterface
   def create
 
     @processo = Processo.new(processo_params)
-    @processo.dono_id = current_user.id
+    set_dono @processo
     respond_to do |format|
       if @processo.save
         format.html { redirect_to @processo, notice: 'Processo was successfully created.' }
@@ -61,6 +61,11 @@ class ProcessosController < OrganizacaoInterface
       format.json { head :no_content }
     end
   end
+
+  def set_dono(processo)
+    @processo.dono_id = current_user.id
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
