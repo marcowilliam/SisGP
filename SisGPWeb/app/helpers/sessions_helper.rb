@@ -11,6 +11,12 @@ module SessionsHelper
 		end
 	end
 
+	def block_organization_access
+		if !logged_in?
+			redirect_to root_path
+		end
+	end
+
 	def logged_in?
 		!current_user.nil?
 	end

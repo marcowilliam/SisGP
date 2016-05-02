@@ -1,5 +1,6 @@
 class ProcessosController < OrganizacaoInterface
   before_action :set_processo, only: [:show, :edit, :update, :destroy]
+  before_action :block_organization_access
 
   # GET /processos
   # GET /processos.json
