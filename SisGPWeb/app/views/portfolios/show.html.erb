@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @portfolio.nome %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @portfolio.descricao %>
+</p>
+
+<p>
+  <strong>Datainicio:</strong>
+  <%= @portfolio.dataInicio %>
+</p>
+
+<p>
+  <strong>Datafim:</strong>
+  <%= @portfolio.dataFim %>
+</p>
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430191144) do
+ActiveRecord::Schema.define(version: 20160502190357) do
 
   create_table "atividades", force: :cascade do |t|
     t.string   "nome"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20160430191144) do
 
   add_index "atividades", ["processo_id"], name: "index_atividades_on_processo_id"
 
+  create_table "portfolios", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "descricao"
+    t.date     "dataInicio"
+    t.date     "dataFim"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "projetos_id"
+  end
+
+  add_index "portfolios", ["projetos_id"], name: "index_portfolios_on_projetos_id"
+
   create_table "processos", force: :cascade do |t|
     t.string   "nome"
     t.text     "descricao"
@@ -36,6 +48,18 @@ ActiveRecord::Schema.define(version: 20160430191144) do
   end
 
   add_index "processos", ["atividades_id"], name: "index_processos_on_atividades_id"
+
+  create_table "projetos", force: :cascade do |t|
+    t.string   "nome"
+    t.text     "descricao"
+    t.date     "dataInicio"
+    t.date     "dataFim"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "processos_id"
+  end
+
+  add_index "projetos", ["processos_id"], name: "index_projetos_on_processos_id"
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "nome"

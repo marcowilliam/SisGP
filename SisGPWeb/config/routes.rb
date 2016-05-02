@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :portfolios
+  resources :projetos
   resources :usuarios
   get 'sign_in' => 'sessions#new' 
   post 'sign_in' => 'sessions#create' 
