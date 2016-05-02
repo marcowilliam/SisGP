@@ -4,7 +4,7 @@ class ProcessosController < OrganizacaoInterface
   # GET /processos
   # GET /processos.json
   def index
-    @processos = Processo.all
+    @processos = Processo.where(:dono_id => current_user.id)
   end
 
   # GET /processos/1
@@ -26,7 +26,7 @@ class ProcessosController < OrganizacaoInterface
   def create
 
     @processo = Processo.new(processo_params)
-
+    @processo.dono_id = current_user.id
     respond_to do |format|
       if @processo.save
         format.html { redirect_to @processo, notice: 'Processo was successfully created.' }

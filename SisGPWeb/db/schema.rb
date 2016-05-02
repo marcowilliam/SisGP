@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160502190357) do
     t.string   "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
+    t.integer  "dono_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "projetos_id"
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160502190357) do
     t.text     "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
+    t.integer  "dono_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "atividades_id"
@@ -54,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160502190357) do
     t.text     "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
+    t.integer  "dono_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "processos_id"
