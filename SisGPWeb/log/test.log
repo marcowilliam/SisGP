@@ -3552,3 +3552,247 @@ Processing by ProcessosController#index as HTML
   Rendered processos/index.html.erb within layouts/application (14.5ms)
 Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.3ms)
   [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "atividades" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "descricao" text, "dataInicio" date, "dataFim" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "processo_id" integer) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX "index_atividades_on_processo_id" ON "atividades" ("processo_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "portfolios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "descricao" varchar, "dataInicio" date, "dataFim" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "projetos_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX "index_portfolios_on_projetos_id" ON "portfolios" ("projetos_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "processos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "descricao" text, "dataInicio" date, "dataFim" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "atividades_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX "index_processos_on_atividades_id" ON "processos" ("atividades_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "projetos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "descricao" text, "dataInicio" date, "dataFim" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "processos_id" integer) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_projetos_on_processos_id" ON "projetos" ("processos_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "usuarios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "email" varchar, "telefone" varchar, "login" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160502190357')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160404003236')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160404174734')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160404182231')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160404182258')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160430190107')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160430190242')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160430191144')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160502183053')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160502184809')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160502190328')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "atividades"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-05-02 19:28:05', '2016-05-02 19:28:05', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "atividades" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-04', '2016-04-04', '2016-05-02 19:28:05', '2016-05-02 19:28:05', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "portfolios"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "portfolios" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-05-02', '2016-05-02', '2016-05-02 19:28:05', '2016-05-02 19:28:05', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "portfolios" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-05-02', '2016-05-02', '2016-05-02 19:28:05', '2016-05-02 19:28:05', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "processos"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "processos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-05-02 19:28:05', '2016-05-02 19:28:05', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "processos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-03', '2016-04-03', '2016-05-02 19:28:05', '2016-05-02 19:28:05', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "projetos"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-05-02', '2016-05-02', '2016-05-02 19:28:05', '2016-05-02 19:28:05', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projetos" ("nome", "descricao", "dataInicio", "dataFim", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-05-02', '2016-05-02', '2016-05-02 19:28:05', '2016-05-02 19:28:05', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "usuarios"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "usuarios" ("nome", "email", "telefone", "login", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2016-05-02 19:28:05', '2016-05-02 19:28:05', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "usuarios" ("nome", "email", "telefone", "login", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2016-05-02 19:28:05', '2016-05-02 19:28:05', 298486374)[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+UsuarioControllerTest: test_should_get_new
+------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  [1m[35mUsuario Load (0.2ms)[0m  SELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" IS NULL LIMIT 1
+  Rendered sessions/new.html.erb within layouts/application (22.0ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" IS NULL LIMIT 1[0m
+  [1m[35mUsuario Load (0.1ms)[0m  SELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" IS NULL LIMIT 1
+  Rendered layouts/_navbar.html.erb (1.8ms)
+Completed 200 OK in 3641ms (Views: 3634.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  [1m[36mUsuario Load (0.1ms)[0m  [1mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" IS NULL LIMIT 1[0m
+  [1m[35mUsuario Load (0.1ms)[0m  SELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" IS NULL LIMIT 1
+  Rendered layouts/_navbar.html.erb (1.2ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjetosControllerTest: test_should_update_projeto
+--------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProjetosControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ProjetosControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjetosControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProjeto Load (0.1ms)[0m  [1mSELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProjetosControllerTest: test_should_destroy_projeto
+---------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProjetosControllerTest: test_should_create_projeto
+--------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "projetos"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProjetosControllerTest: test_should_show_projeto
+------------------------------------------------
+  [1m[35mProjeto Load (0.1ms)[0m  SELECT  "projetos".* FROM "projetos" WHERE "projetos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------
+ProcessosControllerTest: test_should_destroy_processo
+-----------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+ProcessosControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mProcesso Load (0.1ms)[0m  [1mSELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ProcessosControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[35mProcesso Load (0.1ms)[0m  SELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProcessosControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mProcesso Load (0.1ms)[0m  [1mSELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+ProcessosControllerTest: test_should_create_processo
+----------------------------------------------------
+  [1m[35mProcesso Load (0.1ms)[0m  SELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "processos"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------
+ProcessosControllerTest: test_should_update_processoprocesso
+------------------------------------------------------------
+  [1m[35mProcesso Load (0.1ms)[0m  SELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProcessosControllerTest: test_should_show_processo
+--------------------------------------------------
+  [1m[36mProcesso Load (0.1ms)[0m  [1mSELECT  "processos".* FROM "processos" WHERE "processos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+AtividadesControllerTest: test_should_destroy_atividade
+-------------------------------------------------------
+  [1m[35mAtividade Load (0.2ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "atividades"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+AtividadesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+AtividadesControllerTest: test_should_show_atividade
+----------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+AtividadesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+AtividadesControllerTest: test_should_update_atividade
+------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+AtividadesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[35mAtividade Load (0.1ms)[0m  SELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------
+AtividadesControllerTest: test_should_create_atividade
+------------------------------------------------------
+  [1m[36mAtividade Load (0.1ms)[0m  [1mSELECT  "atividades".* FROM "atividades" WHERE "atividades"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "atividades"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------
+PortfoliosControllerTest: test_should_create_portfolio
+------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+PortfoliosControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mPortfolio Load (0.1ms)[0m  [1mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+PortfoliosControllerTest: test_should_show_portfolio
+----------------------------------------------------
+  [1m[35mPortfolio Load (0.1ms)[0m  SELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+PortfoliosControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[36mPortfolio Load (0.1ms)[0m  [1mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+PortfoliosControllerTest: test_should_destroy_portfolio
+-------------------------------------------------------
+  [1m[35mPortfolio Load (0.1ms)[0m  SELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "portfolios"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+PortfoliosControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[35mPortfolio Load (0.1ms)[0m  SELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------
+PortfoliosControllerTest: test_should_update_portfolio
+------------------------------------------------------
+  [1m[36mPortfolio Load (0.1ms)[0m  [1mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction

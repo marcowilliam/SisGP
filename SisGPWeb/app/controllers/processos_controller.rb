@@ -1,4 +1,4 @@
-class ProcessosController < ApplicationController
+class ProcessosController < OrganizacaoInterface
   before_action :set_processo, only: [:show, :edit, :update, :destroy]
 
   # GET /processos

@@ -1,4 +1,4 @@
-class PortfoliosController < ApplicationController
+class PortfoliosController < OrganizacaoInterface
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
   # GET /portfolios

@@ -1,4 +1,4 @@
-class ProjetosController < ApplicationController
+class ProjetosController < OrganizacaoInterface
   before_action :set_projeto, only: [:show, :edit, :update, :destroy]
 
   # GET /projetos
