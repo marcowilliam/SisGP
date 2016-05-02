@@ -1,5 +1,3 @@
-require 'Usuario'
-
 class SessionsController < ApplicationController
   before_action :block_access, except: [:destroy]
   def create 
