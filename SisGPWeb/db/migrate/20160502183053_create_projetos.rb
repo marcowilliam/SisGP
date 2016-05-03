@@ -5,7 +5,6 @@ class CreateProjetos < ActiveRecord::Migration
       t.text :descricao
       t.date :dataInicio
       t.date :dataFim
-      t.belongs_to :dono, class_name: 'Usuario'
 
       t.timestamps null: false
     end

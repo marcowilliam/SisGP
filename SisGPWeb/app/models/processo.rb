@@ -1,5 +1,5 @@
 class Processo < ActiveRecord::Base
   has_many :atividades
-  belongs_to :owner, class_name: 'Usuario'
+  has_and_belongs_to_many :donos, class_name: 'Usuario'
 
 end

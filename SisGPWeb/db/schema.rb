@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502190357) do
+ActiveRecord::Schema.define(version: 20160503121230) do
 
   create_table "atividades", force: :cascade do |t|
     t.string   "nome"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20160502190357) do
     t.text     "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
-    t.integer  "dono_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "atividades_id"
@@ -51,12 +50,19 @@ ActiveRecord::Schema.define(version: 20160502190357) do
 
   add_index "processos", ["atividades_id"], name: "index_processos_on_atividades_id"
 
+  create_table "processos_usuarios", id: false, force: :cascade do |t|
+    t.integer "usuario_id",  null: false
+    t.integer "processo_id", null: false
+  end
+
+  add_index "processos_usuarios", ["processo_id", "usuario_id"], name: "index_processos_usuarios_on_processo_id_and_usuario_id"
+  add_index "processos_usuarios", ["usuario_id", "processo_id"], name: "index_processos_usuarios_on_usuario_id_and_processo_id"
+
   create_table "projetos", force: :cascade do |t|
     t.string   "nome"
     t.text     "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
-    t.integer  "dono_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "processos_id"
