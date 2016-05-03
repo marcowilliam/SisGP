@@ -6,7 +6,8 @@ class UsuariosController < ApplicationController
   def create
 	  @usuario = Usuario.new(usuario_params)
 	  if @usuario.save
-		  redirect_to sign_in_path, notice: "Usuário foi criado com sucesso!"
+	  	  sign_in @usuario
+		  redirect_to root_path, notice: "Usuário foi criado com sucesso!"
 	  else
 		  render action: :new
 	  end
