@@ -41,6 +41,14 @@
         <%= f.date_field :dataInicio, class:'datepicker' %>
       </div>
 
+      <% if @processo.new_record? %>  
+      <% else %>                      
+       <div class="input-field col s12">
+        <%= f.label :adicionar_dono_email %><br>
+        <%= text_field_tag(:dono) %>
+      </div>   
+      <% end %>
+
       <div class="input-field col s12">
         <%= f.label :dataFim %><br>
         <%= f.date_field :dataFim, class:'datepicker' %><br/>

@@ -21,6 +21,14 @@ class Processo < ActiveRecord::Base
   	errors.add(:dataFim, "A data de fim está antes da data de inicio") if
   		dataFim<dataInicio
   	end
-  
+
+  def add_dono(id)
+    @new_dono = Usuario.find(id)
+    if !self.donos.include?(@new_dono)
+      self.donos << @new_dono
+    else
+      #do nothing
+    end
+  end
 
 end

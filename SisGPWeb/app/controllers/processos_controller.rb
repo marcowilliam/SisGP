@@ -1,3 +1,5 @@
+require 'usuario'
+
 class ProcessosController < OrganizacaoInterface
   before_action :set_processo, only: [:show, :edit, :update, :destroy]
   before_action :block_organization_access
@@ -27,7 +29,7 @@ class ProcessosController < OrganizacaoInterface
   def create
 
     @processo = Processo.new(processo_params)
-    add_dono @processo
+    @processo.add_dono current_user.id
     respond_to do |format|
       if @processo.save
         format.html { redirect_to @processo, notice: 'Processo was successfully created.' }
@@ -43,6 +45,9 @@ class ProcessosController < OrganizacaoInterface
   # PATCH/PUT /processos/1.json
   def update
     respond_to do |format|
+      dono_to_be_added_email = params[:dono]
+      @dono_to_be_added = Usuario.where(:email => dono_to_be_added_email).first
+      @processo.add_dono (@dono_to_be_added.id)
       if @processo.update(processo_params)
         format.html { redirect_to @processo, notice: 'Processo was successfully updated.' }
         format.json { render :show, status: :ok, location: @processo }
@@ -62,11 +67,6 @@ class ProcessosController < OrganizacaoInterface
       format.json { head :no_content }
     end
   end
-
-  def add_dono(processo)
-    @processo.donos << current_user
-  end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
