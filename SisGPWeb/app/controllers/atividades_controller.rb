@@ -33,7 +33,7 @@ class AtividadesController < ApplicationController
 
     respond_to do |format|
       if @atividade.save
-        format.html { redirect_to root_path, notice: 'Atividade was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Atividade '+ @atividade.nome + ' criada com sucesso' }
         format.json { render :show, status: :created, location: @atividade }
       else
         format.html { render :new }
