@@ -1,16 +1,31 @@
 <%= form_for :session, url: sign_in_path do |f| %>
-	<div class="field">
+	<div class="input-field col s12 center">
+            <img src="http://w3lessons.info/logo.png" alt="" class="responsive-img valign profile-image-login">
+            <p class="center login-form-text">Bem-Vindo ao Sistema Gerenciador de Processos!</p>
+          </div>
+	<div class="input-field col s12">
+		<i class="mdi-social-person-outline prefix"></i>
 		<%= f.label :email %><br />
 		<%= f.email_field :email, autofocus: true %>
 	</div>
 
-	<div class="field">
-		<%= f.label :password %><br />
-		<%= f.password_field :password, autocomplete: "off" %>
+	<div class="row margin">
+		<div class="input-field col s12">
+	 		<i class="mdi-action-lock-outline prefix"></i>
+			<%= f.label :password %><br />
+			<%= f.password_field :password, autocomplete: "off" %>
+		</div>
 	</div>
-	<div class="actions">
-		<%= f.submit "Log in" %>
-	</div>
+
+
+	 <div class="row">
+		<div class="input-field col s12">
+			<div class="btn waves-effect waves-light col s12">
+			
+			<%= f.submit "Log in" %>
+			</div>
+		</div>
+	 </div>
 	<p>Não possui login? <%= link_to "Crie sua conta agora mesmo!", new_usuario_path %></p>
 <% end %>
 
