@@ -1,6 +1,6 @@
 require 'usuario'
 
-class ProcessosController < OrganizacaoInterface
+class ProcessosController < ApplicationController
   before_action :set_processo, only: [:show, :edit, :update, :destroy]
   before_action :block_organization_access
 
@@ -29,7 +29,7 @@ class ProcessosController < OrganizacaoInterface
   def create
 
     @processo = Processo.new(processo_params)
-    @processo.add_dono current_user.id
+    @processo.adicionar_dono current_user.id
     respond_to do |format|
       if @processo.save
         format.html { redirect_to root_path, notice: 'Processo '+ @processo.nome + ' criado com sucesso' }
@@ -47,7 +47,7 @@ class ProcessosController < OrganizacaoInterface
     respond_to do |format|
       dono_to_be_added_email = params[:dono]
       @dono_to_be_added = Usuario.where(:email => dono_to_be_added_email).first
-      @processo.add_dono (@dono_to_be_added.id)
+      @processo.adicionar_dono (@dono_to_be_added.id)
       if @processo.update(processo_params)
         format.html { redirect_to @processo, notice: 'Processo was successfully updated.' }
         format.json { render :show, status: :ok, location: @processo }

@@ -1,4 +1,6 @@
-class Processo < ActiveRecord::Base
+class Processo < Organizacao 
+  
+  self.table_name = 'processos'
   has_many :atividades
   has_and_belongs_to_many :donos, class_name: 'Usuario'
 
@@ -6,23 +8,23 @@ class Processo < ActiveRecord::Base
   validates :descricao, presence: {message: "Não pode ser nula"}, length: {maximum: 200, message: "Descricao muito grande"}
   validates :dataInicio, presence: true
   validates :dataFim, presence: {message: "Campo em Branco ou inválido! EX: 05-02-2015"}
-  validate :dataInicio_cannot_be_in_the_past
-  validate :dataFim_cannot_be_less_than_dataInicio
+  validate :dataInicio_nao_pode_ser_no_passado
+  validate :dataFim_nao_pode_ser_menor_que_DataInicio
 
 
 
-  def dataInicio_cannot_be_in_the_past
+  def dataInicio_nao_pode_ser_no_passado
   	errors.add(:dataInicio, "A data de inicio não pode ser menor que hoje") if
   		dataInicio<Date.today
   end
 
 
-  def dataFim_cannot_be_less_than_dataInicio
+  def dataFim_nao_pode_ser_menor_que_DataInicio
   	errors.add(:dataFim, "A data de fim está antes da data de inicio") if
   		dataFim<dataInicio
-  	end
+  end
 
-  def add_dono(id)
+  def adicionar_dono(id)
     @new_dono = Usuario.find(id)
     if !self.donos.include?(@new_dono)
       self.donos << @new_dono
