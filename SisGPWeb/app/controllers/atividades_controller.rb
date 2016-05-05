@@ -14,8 +14,6 @@ class AtividadesController < ApplicationController
 
   # GET /atividades/new
   def new
-    @atividade = Atividade.new
-    @processo = Processo.find(params[:id])
   end
 
   # GET /atividades/1/edit
@@ -25,21 +23,6 @@ class AtividadesController < ApplicationController
   # POST /atividades
   # POST /atividades.json
   def create
-
-    @atividade = Atividade.new(atividade_params)
-    responsavel_to_be_added_email = params[:responsavel]
-    @responsavel_to_be_added = Usuario.where(:email => responsavel_to_be_added_email).first
-    @atividade.adicionar_responsavel (@responsavel_to_be_added.id)
-
-    respond_to do |format|
-      if @atividade.save
-        format.html { redirect_to root_path, notice: 'Atividade '+ @atividade.nome + ' criada com sucesso' }
-        format.json { render :show, status: :created, location: @atividade }
-      else
-        format.html { render :new }
-        format.json { render json: @atividade.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /atividades/1
