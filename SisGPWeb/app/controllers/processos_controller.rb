@@ -65,7 +65,6 @@ class ProcessosController < OrganizacaoInterface
 
   def add_dono(processo)
     @processo.donos << current_user
-
   end
 
 

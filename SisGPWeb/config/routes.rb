@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :atividades
 end
 
+  match '/atividades/criar/:id' => 'atividades#new', :as => :atividade_criar, :via => :get
+  match "/atividades/criar/:id" => 'atividades#create', :via => :post, :as => :atividade_create
   get '/dashboard' => 'processos#index', as: 'dashboard'
   get 'static_pages/home' => 'static_pages#home'
   get 'sessions/new'

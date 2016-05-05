@@ -29,11 +29,9 @@
             <td></td>
             <td><%= link_to 'Show', processo,:class=>"waves-effect waves-light btn"  %></td>
             <td><%= link_to 'Edit', edit_processo_path(processo),:class=>"waves-effect waves-light btn"  %></td>
-            <td><%= link_to 'Criar Atividade', new_processo_atividade_path(processo) , :class=>"waves-effect waves-light btn"  %></td>
+            <td><%= link_to 'Criar Atividade', atividade_criar_path(processo) , :class=>"waves-effect waves-light btn"  %></td>
           </tr>
         </tbody>
-
-
 
       </table>
 
