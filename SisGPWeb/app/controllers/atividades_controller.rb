@@ -25,8 +25,11 @@ class AtividadesController < ApplicationController
   # POST /atividades
   # POST /atividades.json
   def create
+
     @atividade = Atividade.new(atividade_params)
-    
+    responsavel_to_be_added_email = params[:responsavel]
+    @responsavel_to_be_added = Usuario.where(:email => responsavel_to_be_added_email).first
+    @atividade.adicionar_responsavel (@responsavel_to_be_added.id)
 
     respond_to do |format|
       if @atividade.save

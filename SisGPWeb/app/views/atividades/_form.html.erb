@@ -46,9 +46,18 @@
           <%= f.label :dataFim %><br>
           <%= f.date_field :dataFim, class:'datepicker' %><br/>
         </div>
-    
-         <p style="visibility: hidden;"><%= f.number_field :processo_id, :value => @processo.id%></p>
-       
+
+        <div class="input-field col s12">
+          <%= f.label :adicionar_responsavel_email %><br>
+          <%= text_field_tag(:responsavel) %>
+        </div>  
+        
+        <% if @atividade.new_record? %>            
+            <p style="visibility: hidden;"><%= f.number_field :processo_id, :value => @processo.id%></p> 
+        <% else %> 
+            <% #do nothing %>
+        <% end %>
+        
         <div class="btn waves-effect waves-light">
           <%= f.submit %>
           <i class="material-icons right">send</i>

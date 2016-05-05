@@ -21,6 +21,9 @@
         <td><%= atividade.dataInicio %></td>
         <td><%= atividade.dataFim %></td>
         <td><%= atividade.processo %></td>
+        <td><%= atividade.responsaveis.each do |responsavel| %>
+              <%= responsavel.nome %><br>
+        </td>
         <td><%= link_to 'Show',processo_atividade_path(atividade) %></td>
         <td><%= link_to 'Edit' %></td>
         <!-- <td><%= link_to 'Destroy',  {method: :delete} %></td> -->
