@@ -34,9 +34,8 @@
                 <%end%>
             </td>
             <td></td>
-            <!--<td><%= link_to 'Show', processo,:class=>"waves-effect waves-light btn"  %></td>-->
             <td><%= link_to 'Editar', edit_processo_path(processo),:class=>"waves-effect waves-light btn"  %></td>
-            <td><%= link_to 'Delete', processo, method: :delete, data: { confirm: "Deseja mesmo excluir o processo #{processo.nome} ?"}, :class=>"red darken-1 btn"  %></td>
+            <td><%= link_to 'Deletar', processo, method: :delete, data: { confirm: "Deseja mesmo excluir o processo '#{processo.nome}' ?"}, :class=>"red darken-1 btn"  %></td>
 
             <td><%= link_to 'Criar Atividade', atividade_criar_path(processo) , :class=>"waves-effect waves-light btn"  %></td>
           </tr>
@@ -84,5 +83,5 @@
 <br>
 
 
-<%= link_to 'New Processo', new_processo_path,:class=>"waves-effect waves-light btn"  %>
+<%= link_to 'Novo Processo', new_processo_path,:class=>"waves-effect waves-light btn"  %>
 </div>

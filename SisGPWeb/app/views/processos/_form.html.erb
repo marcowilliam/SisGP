@@ -23,7 +23,7 @@
 
 
 
-<div class="row center-align">
+<div style="padding-left: 15%;padding-right: 15%;">
   <div class="col s12 m6">
     <div class="card-panel teal lighten-4">
 
@@ -55,10 +55,18 @@
       </div>   
       <% end %>
 
-      <div class="btn waves-effect waves-light">
-        <%= f.submit %>
-        <i class="material-icons right">send</i>
+      <% if @processo.new_record? %>  
+        <div class="btn waves-effect waves-light">
+          <%= f.submit value:'Criar'%>
+          <i class="material-icons right">send</i>
+        </div>
+      <% else %>
+        <div class="btn waves-effect waves-light">
+          <%= f.submit value:'Editar' %>
+          <i class="material-icons right">send</i>
       </div>
+      <% end %>
+      
 
     </div>
   </div>
