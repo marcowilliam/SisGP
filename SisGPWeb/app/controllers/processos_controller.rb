@@ -32,7 +32,7 @@ class ProcessosController < OrganizacaoInterface
     @processo.add_dono current_user.id
     respond_to do |format|
       if @processo.save
-        format.html { redirect_to @processo, notice: 'Processo was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Processo '+ @processo.nome + ' criado com sucesso' }
         format.json { render :show, status: :created, location: @processo }
       else
         format.html { render :new }

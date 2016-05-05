@@ -1,7 +1,7 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Lista de Processos</h1>
+<h1>Seus Processos</h1>
 
 <ul class="collapsible" data-collapsible="accordion">
   <% @processos.each do |processo| %>
@@ -45,7 +45,7 @@
       <ul class="collapsible" data-collapsible="accordion">
         <li>
           <div class="collapsible-header teal lighten-4">
-            <i class="material-icons">assignment</i>Listar tarefas
+            <i class="material-icons">assignment</i>Listar Atividades
           </div>
           <div class="collapsible-body">
             <% processo.atividades.each do |atividade| %>
