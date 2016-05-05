@@ -49,7 +49,7 @@ class ProcessosController < ApplicationController
       @dono_to_be_added = Usuario.where(:email => dono_to_be_added_email).first
       @processo.adicionar_dono (@dono_to_be_added.id)
       if @processo.update(processo_params)
-        format.html { redirect_to @processo, notice: 'Processo was successfully updated.' }
+        format.html { redirect_to @processo, notice: 'Processo '+ @processo.nome + ' atualizidado com sucesso.' }
         format.json { render :show, status: :ok, location: @processo }
       else
         format.html { render :edit }
@@ -61,9 +61,11 @@ class ProcessosController < ApplicationController
   # DELETE /processos/1
   # DELETE /processos/1.json
   def destroy
+    #deleting all atividades related to the process befor deleting it
+    @processo.atividades.destroy_all
     @processo.destroy
     respond_to do |format|
-      format.html { redirect_to processo_url, notice: 'Processo was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Processo deletado com sucesso.' }
       format.json { head :no_content }
     end
   end
