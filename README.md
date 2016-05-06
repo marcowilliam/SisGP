@@ -20,5 +20,4 @@ For more information go to our <a href="https://github.com/DesenhoDeSofwareUNB/S
 
 Anna Martins <br/>
 Rafael Akiyoshi <br/>
-João Henrique Pereira <br/>
 Marco William Silva <br/>
