@@ -1,5 +1,6 @@
 class Usuario < ActiveRecord::Base
 	has_and_belongs_to_many :processos
+	has_and_belongs_to_many :portfolios
 	has_and_belongs_to_many :atividades
 
 	has_secure_password
