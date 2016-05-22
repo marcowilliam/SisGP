@@ -1,17 +1,75 @@
+<script>
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+</script>
+
 <%= form_for(@projeto) do |f| %>
-  <% if @projeto.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
+<% if @projeto.errors.any? %>
 
-      <ul>
-      <% @projeto.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div id="error_explanation">
+  <h2><%= pluralize(@projeto.errors.count, "error") %>
+    prohibited this projeto from being saved:</h2>
+
+  <ul>
+    <% @projeto.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+
+
+
+<div style="padding-left: 15%;padding-right: 15%;">
+  <div class="col s12 m6">
+    <div class="card-panel teal lighten-4">
+
+
+      <div class="input-field col s12">
+        <%= f.label :nome %><br>
+        <%= f.text_field :nome %>
+      </div>
+      <div class="input-field col s12">
+        <%= f.label :descricao %><br>
+        <%= f.text_area :descricao, class:'materialize-textarea', length:'120' %>
+      </div>
+      <div class="input-field col s12">
+        <%= f.label :dataInicio %><br>
+        <%= f.date_field :dataInicio, class:'datepicker' %>
+      </div>
+
+      <div class="input-field col s12">
+        <%= f.label :dataFim %><br>
+        <%= f.date_field :dataFim, class:'datepicker' %><br/>
+      </div>
+
+      <% if @projeto.new_record? %>  
+        <% #do nothing %>
+      <% else %>                      
+       <div class="input-field col s12">
+        <%= f.label :adicionar_dono_email %><br>
+        <%= text_field_tag(:dono) %>
+      </div>   
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+      <% if @projeto.new_record? %>  
+        <div class="btn waves-effect waves-light">
+          <%= f.submit value:'Criar'%>
+          <i class="material-icons right">send</i>
+        </div>
+      <% else %>
+        <div class="btn waves-effect waves-light">
+          <%= f.submit value:'Editar' %>
+          <i class="material-icons right">send</i>
+      </div>
+      <% end %>
+      
+
+    </div>
   </div>
+</div>
+
 <% end %>
