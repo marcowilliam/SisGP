@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :portfolios
-  resources :projetos
   resources :usuarios
   get 'sign_in' => 'sessions#new' 
   post 'sign_in' => 'sessions#create' 
   get 'sign_out' => 'sessions#destroy'  
+  resources :portfolios
+  resources :projetos
   resources :processos do
     resources :atividades
 end
@@ -14,7 +14,8 @@ end
   match '/atividades/criar/:id' => 'processos#new_atividade', :as => :atividade_criar, :via => :get
   match "/atividades/criar/:id" => 'processos#create_atividade', :via => :post, :as => :atividade_create
   
-  get '/dashboard' => 'processos#index', as: 'dashboard'
+  get '/dashboard' => 'portfolios#index', as: 'dashboard'
+  #get '/processos' => 'processos#index', as: 'processos'
   get 'static_pages/home' => 'static_pages#home'
   get 'sessions/new'
   get 'usuarios/new' => 'usuarios#new'

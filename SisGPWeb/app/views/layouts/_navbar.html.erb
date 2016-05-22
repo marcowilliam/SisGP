@@ -1,6 +1,9 @@
 
+  
   <nav class="white" role="navigation">
+
     <div class="nav-wrapper container">
+
     <% if logged_in? %>
       <%= link_to "SisGP" , '/dashboard', :class => "brand-logo" %>
     <% else %>
@@ -16,10 +19,33 @@
       <%end%>
 
       </ul>
+</nav>
+<% if logged_in? %>  
 
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+     <ul id="slide-out" class="side-nav fixed" style="visibility: hidden;">
+     <right>
+     <li><a href="#!"><-</a></li>
+     </right>
+     <center>
+     <li><img src="https://pixabay.com/static/uploads/photo/2013/07/12/18/38/gears-153639_960_720.png" alt="" class="responsive-img valign profile-image-login" width="20%"></li>
+          
+      <li><h5 style="color:gray;"> SisGP </h5></li>
+      <li><hr></li>
+        
+      <li><a href="/portfolios">Portfolios</a></li>
+      <li><a href="/projetos">Projetos</a></li>
+      <li><a href="/processos">Processos</a></li>
+</center>
+    </ul>
+     
+    <a href="#" data-activates="slide-out" class="button-collapse" style="float: left;"><i class="medium mdi-navigation-menu" onclick="openMenu()"></i></a>
+<%end%>
+<script type="text/javascript">
+
+function openMenu(){
+
+  document.getElementById('slide-out').style.visibility = "visible";
+
+}
+</script>
+    

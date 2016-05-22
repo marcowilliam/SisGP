@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505142846) do
+ActiveRecord::Schema.define(version: 20160522225230) do
 
   create_table "atividades", force: :cascade do |t|
     t.string   "nome"
@@ -51,6 +51,11 @@ ActiveRecord::Schema.define(version: 20160505142846) do
 
   add_index "portfolios", ["projetos_id"], name: "index_portfolios_on_projetos_id"
 
+  create_table "portfolios_usuarios", id: false, force: :cascade do |t|
+    t.integer "portfolio_id", null: false
+    t.integer "usuario_id",   null: false
+  end
+
   create_table "processos", force: :cascade do |t|
     t.string   "nome"
     t.text     "descricao"
@@ -59,9 +64,11 @@ ActiveRecord::Schema.define(version: 20160505142846) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "atividades_id"
+    t.integer  "projeto_id"
   end
 
   add_index "processos", ["atividades_id"], name: "index_processos_on_atividades_id"
+  add_index "processos", ["projeto_id"], name: "index_processos_on_projeto_id"
 
   create_table "processos_usuarios", id: false, force: :cascade do |t|
     t.integer "usuario_id",  null: false
@@ -79,9 +86,16 @@ ActiveRecord::Schema.define(version: 20160505142846) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "processos_id"
+    t.integer  "portfolio_id"
   end
 
+  add_index "projetos", ["portfolio_id"], name: "index_projetos_on_portfolio_id"
   add_index "projetos", ["processos_id"], name: "index_projetos_on_processos_id"
+
+  create_table "projetos_usuarios", id: false, force: :cascade do |t|
+    t.integer "projeto_id", null: false
+    t.integer "usuario_id", null: false
+  end
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "nome"
