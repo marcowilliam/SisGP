@@ -45,6 +45,12 @@
         <%= f.label :dataFim %><br>
         <%= f.date_field :dataFim, class:'datepicker' %><br/>
       </div>
+      <div class="input-field col s12">
+      <%= f.label :adicionar_projetos %><br>
+      <%= f.collection_select :projetos, Projeto.all, :id, :nome, :prompt => "Selecione um projeto"%>
+
+      <% #{include_blank: true}, {multiple: true} %>
+      </div>
 
       <% if @portfolio.new_record? %>  
         <% #do nothing %>

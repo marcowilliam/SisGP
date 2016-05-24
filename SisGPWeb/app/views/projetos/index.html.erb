@@ -36,8 +36,6 @@
             <td></td>
             <td><%= link_to 'Editar', edit_projeto_path(projeto),:class=>"waves-effect waves-light btn"  %></td>
             <td><%= link_to 'Deletar', projeto, method: :delete, data: { confirm: "Deseja mesmo excluir o projeto '#{projeto.nome}' ?"}, :class=>"red darken-1 btn"  %></td>
-
-            <td><%= link_to 'Criar processo', processo_criar_path(projeto) , :class=>"waves-effect waves-light btn"  %></td>
           </tr>
         </tbody>
 

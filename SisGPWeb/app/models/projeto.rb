@@ -3,8 +3,8 @@ class Projeto < Organizacao
 	self.table_name = 'projetos'
 
 	has_many :processos
-	has_one :portfolio
-	has_many :donos, class_name: 'Usuario'
+	belongs_to :portfolio
+	has_and_belongs_to_many :donos, class_name: 'Usuario'
 
 	def adicionar_dono(id)
 	    @new_dono = Usuario.find(id)

@@ -25,9 +25,9 @@ class ProcessosController < ApplicationController
   # POST /processos
   # POST /processos.json
   def create
-
     @processo = Processo.new(processo_params)
     @processo.adicionar_dono current_user.id
+    @projeto_to_be_added = params[:projeto]
     respond_to do |format|
       if @processo.save
         format.html { redirect_to root_path, notice: 'Processo '+ @processo.nome + ' criado com sucesso' }
