@@ -2,6 +2,7 @@ class Processo < Organizacao
   
   self.table_name = 'processos'
   has_many :atividades
+  belongs_to :projeto
   has_and_belongs_to_many :donos, class_name: 'Usuario'
 
   validates :nome, presence:{message: "Não pode ser nulo"}, length: {minimum: 6, message: "Menor que esperado"} 
