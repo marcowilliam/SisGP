@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522225230) do
+ActiveRecord::Schema.define(version: 20160524175205) do
 
   create_table "atividades", force: :cascade do |t|
     t.string   "nome"
@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20160522225230) do
 
   add_index "atividades_usuarios", ["atividade_id", "usuario_id"], name: "index_atividades_usuarios_on_atividade_id_and_usuario_id"
   add_index "atividades_usuarios", ["usuario_id", "atividade_id"], name: "index_atividades_usuarios_on_usuario_id_and_atividade_id"
+
+  create_table "liks", force: :cascade do |t|
+    t.text     "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "organizacaos", force: :cascade do |t|
     t.datetime "created_at", null: false
