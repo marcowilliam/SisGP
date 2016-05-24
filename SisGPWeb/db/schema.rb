@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20160522225230) do
     t.string   "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
-    t.integer  "dono_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "projetos_id"
@@ -55,6 +54,9 @@ ActiveRecord::Schema.define(version: 20160522225230) do
     t.integer "portfolio_id", null: false
     t.integer "usuario_id",   null: false
   end
+
+  add_index "portfolios_usuarios", ["portfolio_id", "usuario_id"], name: "index_portfolios_usuarios_on_portfolio_id_and_usuario_id"
+  add_index "portfolios_usuarios", ["usuario_id", "portfolio_id"], name: "index_portfolios_usuarios_on_usuario_id_and_portfolio_id"
 
   create_table "processos", force: :cascade do |t|
     t.string   "nome"
