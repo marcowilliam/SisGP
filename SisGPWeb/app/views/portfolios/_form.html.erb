@@ -1,10 +1,3 @@
-<script>
-  $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
-</script>
-
 <%= form_for(@portfolio) do |f| %>
 <% if @portfolio.errors.any? %>
 
@@ -32,24 +25,30 @@
         <%= f.label :nome %><br>
         <%= f.text_field :nome %>
       </div>
+
       <div class="input-field col s12">
+
         <%= f.label :descricao %><br>
         <%= f.text_area :descricao, class:'materialize-textarea', length:'120' %>
       </div>
       <div class="input-field col s12">
-        <%= f.label :dataInicio %><br>
+        <%= f.label :data_incial %><br>
         <%= f.date_field :dataInicio, class:'datepicker' %>
       </div>
 
       <div class="input-field col s12">
-        <%= f.label :dataFim %><br>
+        <%= f.label :data_final %><br>
         <%= f.date_field :dataFim, class:'datepicker' %><br/>
       </div>
+      
       <div class="input-field col s12">
-      <%= f.label :adicionar_projetos %><br>
-      <%= f.collection_select :projetos, Projeto.all, :id, :nome, :prompt => "Selecione um projeto"%>
-
-      <% #{include_blank: true}, {multiple: true} %>
+          <%= f.label :adicionar_projetos %><br><br>
+          <select multiple="multiple" name="projetos_added[]" id="projetos_added">
+          <option value="" disabled selected>Selecione os projetos</option>
+          <% @projetos.each do |projeto| %>
+            <option value="<%=projeto.id%>"> <%=projeto.nome%> </option>
+          <% end %>
+          </select>
       </div>
 
       <% if @portfolio.new_record? %>  

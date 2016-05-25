@@ -59,14 +59,13 @@
                   <%= projeto.descricao %>
                 </div>
                 <div class="col s1"> Responsáveis:
-                  <% projeto.responsaveis.each do |responsavel| %>
+                  <% projeto.donos.each do |responsavel| %>
                      <%= responsavel.nome %><br>
                   <% end %>
                 </div>
 
                 <div class=" col s1 offset-s2"><%= link_to 'Show', :class=>"waves-effect waves btn"  %></div>
                 <div class="col s1">
-                  <%= link_to 'Edit', edit_portfolio_projeto_path(portfolio , projeto),:class=>"waves-effect waves-light btn"  %></div>
               </div>
             </div>
             <%end%>
