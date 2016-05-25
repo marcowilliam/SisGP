@@ -15,6 +15,8 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/new
   def new
     @portfolio = Portfolio.new
+    @projetos = current_use.projetos
+    @projetos = @projetos.where(:portfolio => nil)
   end
 
   # GET /portfolios/1/edit
@@ -26,10 +28,17 @@ class PortfoliosController < ApplicationController
   def create
     @portfolio = Portfolio.new(portfolio_params)
     @portfolio.adicionar_dono current_user.id
+    @projetos_added = params[:projetos_added]
+    if @projetos_added
+      @portfolio.adicionar_projeto @projetos_added
+    else
+      #do nothing
+    end
+
 
     respond_to do |format|
       if @portfolio.save
-        format.html { redirect_to @portfolio, notice: 'Portfolio was successfully created.' }
+        format.html { redirect_to '/portfolios', notice: 'Portfolio was successfully created.' }
         format.json { render :show, status: :created, location: @portfolio }
       else
         format.html { render :new }
@@ -41,9 +50,15 @@ class PortfoliosController < ApplicationController
   # PATCH/PUT /portfolios/1
   # PATCH/PUT /portfolios/1.json
   def update
+    @projetos_added = params[:projetos_added]
+    if @projetos_added
+      @portfolio.adicionar_projeto @projetos_added
+    else
+      #do nothing
+    end
     respond_to do |format|
       if @portfolio.update(portfolio_params)
-        format.html { redirect_to @portfolio, notice: 'Portfolio was successfully updated.' }
+        format.html { redirect_to '/portfolios', notice: 'Portfolio was successfully updated.' }
         format.json { render :show, status: :ok, location: @portfolio }
       else
         format.html { render :edit }
@@ -70,6 +85,6 @@ class PortfoliosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_params
-      params.require(:portfolio).permit(:nome, :descricao, :dataInicio, :dataFim)
+      params.require(:portfolio).permit(:nome, :descricao, :dataInicio, :dataFim, :projetos)
     end
 end
