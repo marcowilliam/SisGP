@@ -24,10 +24,26 @@ describe Usuario do
 			usuario.email = "aaaaa"
 			expect(usuario).to be_invalid
 		end
-		
-		it "requite right login size"
 
-		it "requite password to be set"
+		it "requite right login size" do
+			usuario = Usuario.create
+			usuario.nome = "Test"
+			usuario.login = "123"
+			usuario.telefone = "555"
+			usuario.password_digest = "123"
+			usuario.email = "a@a.com"
+			expect(usuario).to be_invalid
+		end
+
+		it "requite password to be set" do
+			usuario = Usuario.create
+			usuario.nome = "Test"
+			usuario.login = "123456"
+			usuario.telefone = "555"
+			usuario.password_digest = ""
+			usuario.email = "a@a.com"
+			expect(usuario).to be_invalid
+		end
 
 	end
 end
