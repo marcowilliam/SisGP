@@ -45,8 +45,10 @@
           <%= f.label :adicionar_projetos %><br><br>
           <select multiple="multiple" name="projetos_added[]" id="projetos_added">
           <option value="" disabled selected>Selecione os projetos</option>
-          <% @projetos.each do |projeto| %>
-            <option value="<%=projeto.id%>"> <%=projeto.nome%> </option>
+          <% if @projetos %>
+            <% @projetos.each do |projeto| %>
+              <option value="<%=projeto.id%>"> <%=projeto.nome%> </option>
+            <% end %>
           <% end %>
           </select>
       </div>

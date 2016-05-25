@@ -105,6 +105,9 @@ ActiveRecord::Schema.define(version: 20160524175205) do
     t.integer "usuario_id", null: false
   end
 
+  add_index "projetos_usuarios", ["projeto_id", "usuario_id"], name: "index_projetos_usuarios_on_projeto_id_and_usuario_id"
+  add_index "projetos_usuarios", ["usuario_id", "projeto_id"], name: "index_projetos_usuarios_on_usuario_id_and_projeto_id"
+
   create_table "usuarios", force: :cascade do |t|
     t.string   "nome"
     t.string   "email"
