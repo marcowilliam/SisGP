@@ -13,4 +13,14 @@ class Portfolio < Organizacao
     end
   end
 
+  def adicionar_projeto(ids)
+    ids.each do |id|
+      @new_projeto = Projeto.find(id)
+      if !self.projetos.include?(@new_projeto)
+        self.projetos << @new_projeto
+      else
+        #do nothing
+      end 
+    end
+  end
 end
