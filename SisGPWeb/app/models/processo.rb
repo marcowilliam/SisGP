@@ -16,7 +16,7 @@ class Processo < Organizacao
 
   def dataInicio_nao_pode_ser_no_passado
   	errors.add(:dataInicio, "A data de inicio não pode ser menor que hoje") if
-  		dataInicio<Date.today
+      Date.today > dataInicio
   end
 
 

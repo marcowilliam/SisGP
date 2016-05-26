@@ -23,5 +23,6 @@ describe UsuariosController, :type => :controller do
 			user = Usuario.create(:nome =>"test", :login=>"123455", :email=>"a@a.com",:password=>"123456", :password_confirmation=>"123456", :telefone=>"123456")
 			expect(user.nome).to eq("test")
 		end
+
 	end	
 end
