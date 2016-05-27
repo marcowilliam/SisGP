@@ -15,4 +15,15 @@ class Projeto < Organizacao
 	    end
   	end
 
+  	def adicionar_processos(ids)
+	    ids.each do |id|
+	      @new_processo = Processo.find(id)
+	      if !self.processos.include?(@new_processo)
+	        self.processos << @new_processo
+	      else
+	        #do nothing
+	      end 
+	    end
+  	end
+
 end

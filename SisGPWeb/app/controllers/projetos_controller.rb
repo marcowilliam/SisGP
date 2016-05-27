@@ -15,10 +15,14 @@ class ProjetosController < ApplicationController
   # GET /projetos/new
   def new
     @projeto = Projeto.new
+    @processos = current_user.processos
+    @processos = @processos.where(:projeto => nil)
   end
 
   # GET /projetos/1/edit
   def edit
+    @processos = current_user.processos
+    @processos = @processos.where(:projeto => nil)
   end
 
   # POST /projetos
@@ -26,6 +30,13 @@ class ProjetosController < ApplicationController
   def create
     @projeto = Projeto.new(projeto_params)
     @projeto.adicionar_dono current_user.id
+    @processos_added = params[:processos_added]
+    if @processos_added
+      @projeto.adicionar_processos @processos_added
+    else
+      #do nothing
+    end
+
     respond_to do |format|
       if @projeto.save
         format.html { redirect_to '/projetos', notice: 'Projeto was successfully created.' }
@@ -40,6 +51,12 @@ class ProjetosController < ApplicationController
   # PATCH/PUT /projetos/1
   # PATCH/PUT /projetos/1.json
   def update
+    @processos_added = params[:processos_added]
+    if @processos_added
+      @projeto.adicionar_processos @processos_added
+    else
+      #do nothing
+    end
     respond_to do |format|
       if @projeto.update(projeto_params)
         format.html { redirect_to '/projetos', notice: 'Projeto was successfully updated.' }
@@ -69,7 +86,7 @@ class ProjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projeto_params
-      params.require(:projeto).permit(:nome, :descricao, :dataInicio, :dataFim)
+      params.require(:projeto).permit(:nome, :descricao, :dataInicio, :dataFim, :processos)
       #params.fetch(:projeto, {})
     end
 end
