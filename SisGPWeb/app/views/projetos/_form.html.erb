@@ -46,6 +46,18 @@
         <%= f.date_field :dataFim, class:'datepicker' %><br/>
       </div>
 
+      <div class="input-field col s12">
+          <%= f.label :adicionar_processos %><br><br>
+          <select multiple="multiple" name="processos_added[]" id="processos_added">
+          <option value="" disabled selected>Selecione os processos</option>
+          <% if @processos %>
+            <% @processos.each do |processo| %>
+              <option value="<%=processo.id%>"> <%=processo.nome%> </option>
+            <% end %>
+          <% end %>
+          </select>
+      </div>
+
       <% if @projeto.new_record? %>  
         <% #do nothing %>
       <% else %>                      
