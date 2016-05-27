@@ -9,12 +9,9 @@
 <% if @processo.errors.any? %>
 
 <div id="error_explanation">
-  <h2><%= pluralize(@processo.errors.count, "error") %>
-    prohibited this processo from being saved:</h2>
-
   <ul>
     <% @processo.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+    <li style="color: red"><%= message %></li>
     <% end %>
   </ul>
 </div>
@@ -37,12 +34,12 @@
         <%= f.text_area :descricao, class:'materialize-textarea', length:'120' %>
       </div>
       <div class="input-field col s12">
-        <%= f.label :dataInicio %><br>
+        <%= f.label :data_incial %><br>
         <%= f.date_field :dataInicio, class:'datepicker' %>
       </div>
 
       <div class="input-field col s12">
-        <%= f.label :dataFim %><br>
+        <%= f.label :data_final %><br>
         <%= f.date_field :dataFim, class:'datepicker' %><br/>
       </div>
 
