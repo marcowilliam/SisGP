@@ -15,12 +15,14 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/new
   def new
     @portfolio = Portfolio.new
-    @projetos = current_use.projetos
+    @projetos = current_user.projetos
     @projetos = @projetos.where(:portfolio => nil)
   end
 
   # GET /portfolios/1/edit
   def edit
+    @projetos = current_user.projetos
+    @projetos = @projetos.where(:portfolio => nil)
   end
 
   # POST /portfolios
