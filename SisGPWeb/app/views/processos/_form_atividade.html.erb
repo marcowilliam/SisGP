@@ -23,8 +23,6 @@
   </div>
   <% end %>
 
-
-
   <div style="padding-left: 15%;padding-right: 15%;">
     <div class="col s12 m6">
       <div class="card-panel teal lighten-4">
@@ -55,11 +53,19 @@
 
         <%= f.file_field :nome %>
 
-
+        <br><br>
+        <% if @atividade.new_record? %>  
         <div class="btn waves-effect waves-light">
-          <%= f.submit %>
+          <%= f.submit value:'Criar'%>
           <i class="material-icons right">send</i>
         </div>
+      <% else %>
+        <div class="btn waves-effect waves-light">
+          <%= f.submit value:'Editar' %>
+          <i class="material-icons right">send</i>
+      </div>
+      <%= link_to 'Deletar', atividade_deletar_path(@atividade), data: { confirm: "Deseja mesmo excluir o processo '#{@atividade.nome}' ?"}, :class=>"red darken-1 btn"  %></td>
+      <% end %>
         
       </div>
     </div>

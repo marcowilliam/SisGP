@@ -64,7 +64,8 @@ class ProcessosController < ApplicationController
     @processo.atividades.destroy_all
     @processo.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Processo deletado com sucesso.' }
+      format.html { redirect_to root_path, notice: 'Processo '+ @processo.nome + 
+          ' deletado com sucesso.'}
       format.json { head :no_content }
     end
   end
@@ -95,6 +96,7 @@ class ProcessosController < ApplicationController
   end
 
   def edit_atividade
+    @atividade = Atividade.find params[:id]
   end
 
   def update_atividade
@@ -107,6 +109,15 @@ class ProcessosController < ApplicationController
         format.html { render :edit }
         format.json { render json: @atividade.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy_atividade
+    @atividade = Atividade.find params[:id]
+    @atividade.destroy
+    respond_to do |format|
+      format.html { redirect_to '/processos', notice: 'Atividade ' + @atividade.nome + ' deletada com sucesso.' }
+      format.json { head :no_content }
     end
   end
 

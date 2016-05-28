@@ -66,9 +66,9 @@
                   <% end %>
                 </div>
 
-                <div class=" col s1 offset-s2"><%= link_to 'Show', :class=>"waves-effect waves btn"  %></div>
-                <div class="col s1">
-                  <%= link_to 'Edit', atividade_editar_path(processo , atividade),:class=>"waves-effect waves-light btn"  %></div>
+                <div class=" col s1 offset-s2"><%= link_to 'Mostrar', @atividade, :class=>"waves-effect waves btn"  %></div>
+                <div class="col s1 offset-s1">
+                  <%= link_to 'Editar', atividade_editar_path(processo , atividade),:class=>"waves-effect waves-light btn"  %></div>
               </div>
             </div>
             <%end%>
