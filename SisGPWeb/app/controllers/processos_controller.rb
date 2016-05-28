@@ -94,6 +94,22 @@ class ProcessosController < ApplicationController
     end
   end
 
+  def edit_atividade
+  end
+
+  def update_atividade
+    @atividade = Atividade.find params[:id]
+    respond_to do |format|
+      if @atividade.update(atividade_params)
+        format.html { redirect_to '/processos', notice: 'Atividade ' + @atividade.nome + ' atualizada com sucesso.' }
+        format.json { render :show, status: :ok, location: @atividade }
+      else
+        format.html { render :edit }
+        format.json { render json: @atividade.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
     #@atividaide = AtividadesController.new
     #@atividade.create(@curret_processo)
   private
