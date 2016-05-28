@@ -40,7 +40,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio.save
-        format.html { redirect_to '/portfolios', notice: 'Portfolio was successfully created.' }
+        format.html { redirect_to '/portfolios', notice: 'Portfolio ' + @portfolio.nome + ' criado com sucesso.' }
         format.json { render :show, status: :created, location: @portfolio }
       else
         format.html { render :new }
@@ -53,14 +53,24 @@ class PortfoliosController < ApplicationController
   # PATCH/PUT /portfolios/1.json
   def update
     @projetos_added = params[:projetos_added]
+    
+    dono_to_be_added_email = params[:dono]
+    @dono_to_be_added = Usuario.where(:email => dono_to_be_added_email).first
+    if @dono_to_be_added
+      @portfolio.adicionar_dono (@dono_to_be_added.id)
+    else
+      #do nothing
+    end
+
     if @projetos_added
       @portfolio.adicionar_projeto @projetos_added
     else
       #do nothing
     end
+
     respond_to do |format|
-      if @portfolio.update(portfolio_params)
-        format.html { redirect_to '/portfolios', notice: 'Portfolio was successfully updated.' }
+      if @portfolio.update(portfolio_params) 
+        format.html { redirect_to '/portfolios', notice: 'Portfolio '  + @portfolio.nome + ' atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @portfolio }
       else
         format.html { render :edit }
@@ -74,7 +84,7 @@ class PortfoliosController < ApplicationController
   def destroy
     @portfolio.destroy
     respond_to do |format|
-      format.html { redirect_to portfolios_url, notice: 'Portfolio was successfully destroyed.' }
+      format.html { redirect_to portfolios_url, notice: 'Portfolio '  + @portfolio.nome + ' deletado com sucesso.' }
       format.json { head :no_content }
     end
   end
