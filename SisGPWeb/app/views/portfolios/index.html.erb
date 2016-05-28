@@ -1,8 +1,9 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Seus portfolios</h1>
-
+<center>
+<h1>Portfolios</h1>
+</center>
 <ul class="collapsible" data-collapsible="accordion">
   <% @portfolios.each do |portfolio| %>
   <li>
@@ -64,7 +65,7 @@
                   <% end %>
                 </div>
 
-                <div class=" col s1 offset-s2"><%= link_to 'Ver Projetos','/projetos', :class=>"waves-effect waves btn"  %></div>
+                <div class=" col s1 offset-s2"><%= link_to 'Ver','/projetos', :class=>"waves-effect waves btn"  %></div>
                 <div class="col s1">
               </div>
             </div>

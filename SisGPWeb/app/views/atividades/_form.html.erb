@@ -1,3 +1,4 @@
+  
   <script>
     $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
@@ -24,7 +25,7 @@
 
 
 
-  <div class="row center-align">
+  <div style="padding-left: 15%;padding-right: 15%;">
     <div class="col s12 m6">
       <div class="card-panel teal lighten-4">
 
@@ -51,13 +52,10 @@
           <%= f.label :adicionar_responsavel_email %><br>
           <%= text_field_tag(:responsavel) %>
         </div>  
-        
-        <!--<% if @atividade.new_record? %>            
-            <p style="visibility: hidden;"><%= f.number_field :processo_id, :value => @processo.id%></p> 
-        <% else %> 
-            <% #do nothing %>
-        <% end %>-->
-        
+
+        <%= f.file_field :nome %>
+
+        <br><br>
         <div class="btn waves-effect waves-light">
           <%= f.submit %>
           <i class="material-icons right">send</i>
