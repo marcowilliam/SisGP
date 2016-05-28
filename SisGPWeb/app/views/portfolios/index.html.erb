@@ -37,7 +37,7 @@
             <td><%= link_to 'Editar', edit_portfolio_path(portfolio),:class=>"waves-effect waves-light btn"  %></td>
             <td><%= link_to 'Deletar', portfolio, method: :delete, data: { confirm: "Deseja mesmo excluir o portfolio '#{portfolio.nome}' ?"}, :class=>"red darken-1 btn"  %></td>
 
-            <td><%= link_to 'Criar projeto', 'projeto/create' , :class=>"waves-effect waves-light btn"  %></td>
+            <td><%#= link_to 'Criar projeto', 'projeto/create' , :class=>"waves-effect waves-light btn"  %></td>
           </tr>
         </tbody>
 
@@ -64,7 +64,7 @@
                   <% end %>
                 </div>
 
-                <div class=" col s1 offset-s2"><%= link_to 'Show', :class=>"waves-effect waves btn"  %></div>
+                <div class=" col s1 offset-s2"><%= link_to 'Ver Projetos','/projetos', :class=>"waves-effect waves btn"  %></div>
                 <div class="col s1">
               </div>
             </div>

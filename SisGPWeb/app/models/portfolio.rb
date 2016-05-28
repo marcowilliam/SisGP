@@ -1,7 +1,7 @@
 class Portfolio < Organizacao
 
 	self.table_name = 'portfolios'
-	has_many :projetos
+	has_many :projetos, dependent: :nullify
 	has_and_belongs_to_many :donos, class_name: 'Usuario'
 
 	def adicionar_dono(id)

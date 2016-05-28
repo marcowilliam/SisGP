@@ -2,7 +2,7 @@ class Projeto < Organizacao
 
 	self.table_name = 'projetos'
 
-	has_many :processos
+	has_many :processos, dependent: :nullify
 	belongs_to :portfolio
 	has_and_belongs_to_many :donos, class_name: 'Usuario'
 
