@@ -30,7 +30,7 @@ class AtividadesController < ApplicationController
   def update
     respond_to do |format|
       if @atividade.update(atividade_params)
-        format.html { redirect_to @atividade, notice: 'Atividade was successfully updated.' }
+        format.html { redirect_to '/processos', notice: 'Atividade ' + @atividade.nome + ' atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @atividade }
       else
         format.html { render :edit }

@@ -13,6 +13,8 @@ end
   #match "/atividades/criar/:id" => 'atividades#create', :via => :post, :as => :atividade_create
   match '/atividades/criar/:id' => 'processos#new_atividade', :as => :atividade_criar, :via => :get
   match "/atividades/criar/:id" => 'processos#create_atividade', :via => :post, :as => :atividade_create
+  match "/processos/:id/atividades/:id/edit" => 'processos#edit_atividade', :as => :atividade_editar, :via => :get
+    match "/processos/:id/atividades/:id/edit" => 'processos#update_atividade', :via => :post, :as => :atividade_update
   
   get '/dashboard' => 'portfolios#index', as: 'dashboard'
   #get '/processos' => 'processos#index', as: 'processos'
