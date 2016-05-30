@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'sign_in' => 'sessions#new' 
   post 'sign_in' => 'sessions#create' 
   get 'sign_out' => 'sessions#destroy'  
+  resources :criador_organizacao
   resources :portfolios
   resources :projetos
   resources :processos do
@@ -13,17 +14,20 @@ end
   #match "/atividades/criar/:id" => 'atividades#create', :via => :post, :as => :atividade_create
   match '/atividades/criar/:id' => 'processos#new_atividade', :as => :atividade_criar, :via => :get
   match "/atividades/criar/:id" => 'processos#create_atividade', :via => :post, :as => :atividade_create
+  #match '/portfolio/criar/:id' => 'portfolio#new', :as => :portfolio_criar, :via => :get
+  match "/organizacao/criar" => 'criador_organizacao#create', :via => :post, :as => :organizacao_create
   match "/processos/atividades/:id/:id/edit" => 'processos#edit_atividade', :as => :atividade_editar, :via => :get
   match "/processos/atividades/:id/:id/edit" => 'processos#update_atividade', :via => :post, :as => :atividade_update
   match "/processos/atividade/deletar/:id" => 'processos#destroy_atividade', :as => :atividade_deletar, :via => :get
 
-  
   get '/dashboard' => 'portfolios#index', as: 'dashboard'
   #get '/processos' => 'processos#index', as: 'processos'
   get 'static_pages/home' => 'static_pages#home'
   get 'sessions/new'
   get 'usuarios/new' => 'usuarios#new'
   root 'static_pages#home'
+
+
 
 
   #get '/atividade/nova', to: 'atividades#new'
