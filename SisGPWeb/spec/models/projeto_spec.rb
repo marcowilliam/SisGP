@@ -7,6 +7,6 @@ require "projeto"
 require 'usuario'
 
 describe Projeto do
-	
+	subject(:projeto) { Projeto.new(nome: "teste", descricao: "teste01", dataInicio: nil, dataFim: nil)}
 
 end
