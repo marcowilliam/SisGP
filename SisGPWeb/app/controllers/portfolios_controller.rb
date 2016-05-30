@@ -17,6 +17,7 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.new
     @projetos = current_user.projetos
     @projetos = @projetos.where(:portfolio => nil)
+    @idenficador_organizacao = 0
   end
 
   # GET /portfolios/1/edit
