@@ -43,6 +43,10 @@
         <%= f.date_field :dataFim, class:'datepicker' %><br/>
       </div>
 
+      <div class="input-field col s12" style="display: none;">
+        <%= text_field_tag(:identificador_organizacao, 2) %>
+      </div>   
+
       <% if @processo.new_record? %>  
         <% #do nothing %>
       <% else %>                      

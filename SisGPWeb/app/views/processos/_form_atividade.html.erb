@@ -64,7 +64,7 @@
           <%= f.submit value:'Editar' %>
           <i class="material-icons right">send</i>
       </div>
-      <%= link_to 'Deletar', atividade_deletar_path(@atividade), data: { confirm: "Deseja mesmo excluir o processo '#{@atividade.nome}' ?"}, :class=>"red darken-1 btn"  %></td>
+      <%= link_to 'Deletar', atividade_deletar_path(@atividade), data: { confirm: "Deseja mesmo excluir a atividade '#{@atividade.nome}' ?"}, :class=>"red darken-1 btn"  %></td>
       <% end %>
         
       </div>

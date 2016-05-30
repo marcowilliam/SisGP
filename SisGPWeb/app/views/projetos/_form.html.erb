@@ -1,11 +1,4 @@
-<script>
-  $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
-</script>
-
-<%= form_for(@projeto) do |f| %>
+<%= form_for @projeto , :url => organizacao_create_path, :html => {:method => :post} do |f| %>
 <% if @projeto.errors.any? %>
 
 <div id="error_explanation">
@@ -57,6 +50,10 @@
           <% end %>
           </select>
       </div>
+
+      <div class="input-field col s12" style="display: none;">
+        <%= text_field_tag(:identificador_organizacao, 1) %>
+      </div>   
 
       <% if @projeto.new_record? %>  
         <% #do nothing %>
