@@ -45,9 +45,11 @@ class ProcessosController < ApplicationController
     respond_to do |format|
       dono_to_be_added_email = params[:dono]
       @dono_to_be_added = Usuario.where(:email => dono_to_be_added_email).first
-      @processo.adicionar_dono (@dono_to_be_added.id)
+      if @dono_to_be_added
+        @processo.adicionar_dono (@dono_to_be_added.id)
+      end
       if @processo.update(processo_params)
-        format.html { redirect_to @processo, notice: 'Processo '+ @processo.nome + 
+        format.html { redirect_to '/processos', notice: 'Processo '+ @processo.nome + 
           ' atualizidado com sucesso.' }
         format.json { render :show, status: :ok, location: @processo }
       else

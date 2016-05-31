@@ -1,84 +1,174 @@
-<%= form_for @projeto , :url => organizacao_create_path, :html => {:method => :post} do |f| %>
-<% if @projeto.errors.any? %>
+<% if @projeto.new_record? %>  
+    <%= form_for @projeto , :url => organizacao_create_path, :html => {:method => :post} do |f| %>
+    <% if @projeto.errors.any? %>
 
-<div id="error_explanation">
-  <h2><%= pluralize(@projeto.errors.count, "error") %>
-    prohibited this projeto from being saved:</h2>
+    <div id="error_explanation">
+      <h2><%= pluralize(@projeto.errors.count, "error") %>
+        prohibited this projeto from being saved:</h2>
 
-  <ul>
-    <% @projeto.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-
-
-
-<div style="padding-left: 15%;padding-right: 15%;">
-  <div class="col s12 m6">
-    <div class="card-panel teal lighten-4">
-
-
-      <div class="input-field col s12">
-        <%= f.label :nome %><br>
-        <%= f.text_field :nome %>
-      </div>
-      <div class="input-field col s12">
-        <%= f.label :descricao %><br>
-        <%= f.text_area :descricao, class:'materialize-textarea', length:'120' %>
-      </div>
-      <div class="input-field col s12">
-        <%= f.label :dataInicio %><br>
-        <%= f.date_field :dataInicio, class:'datepicker' %>
-      </div>
-
-      <div class="input-field col s12">
-        <%= f.label :dataFim %><br>
-        <%= f.date_field :dataFim, class:'datepicker' %><br/>
-      </div>
-
-      <div class="input-field col s12">
-          <%= f.label :adicionar_processos %><br><br>
-          <select multiple="multiple" name="processos_added[]" id="processos_added">
-          <option value="" disabled selected>Selecione os processos</option>
-          <% if @processos %>
-            <% @processos.each do |processo| %>
-              <option value="<%=processo.id%>"> <%=processo.nome%> </option>
-            <% end %>
-          <% end %>
-          </select>
-      </div>
-
-      <div class="input-field col s12" style="display: none;">
-        <%= text_field_tag(:identificador_organizacao, 1) %>
-      </div>   
-
-      <% if @projeto.new_record? %>  
-        <% #do nothing %>
-      <% else %>                      
-       <div class="input-field col s12">
-        <%= f.label :adicionar_dono_email %><br>
-        <%= text_field_tag(:dono) %>
-      </div>   
-      <% end %>
-
-      <% if @projeto.new_record? %>  
-        <div class="btn waves-effect waves-light">
-          <%= f.submit value:'Criar'%>
-          <i class="material-icons right">send</i>
-        </div>
-      <% else %>
-        <div class="btn waves-effect waves-light">
-          <%= f.submit value:'Editar' %>
-          <i class="material-icons right">send</i>
-      </div>
-      <% end %>
-      
-
+      <ul>
+        <% @projeto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
-  </div>
-</div>
+    <% end %>
+
+
+
+
+    <div style="padding-left: 15%;padding-right: 15%;">
+      <div class="col s12 m6">
+        <div class="card-panel teal lighten-4">
+
+
+          <div class="input-field col s12">
+            <%= f.label :nome %><br>
+            <%= f.text_field :nome %>
+          </div>
+          <div class="input-field col s12">
+            <%= f.label :descricao %><br>
+            <%= f.text_area :descricao, class:'materialize-textarea', length:'120' %>
+          </div>
+          <div class="input-field col s12">
+            <%= f.label :dataInicio %><br>
+            <%= f.date_field :dataInicio, class:'datepicker' %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= f.label :dataFim %><br>
+            <%= f.date_field :dataFim, class:'datepicker' %><br/>
+          </div>
+
+          <div class="input-field col s12">
+              <%= f.label :adicionar_processos %><br><br>
+              <select multiple="multiple" name="processos_added[]" id="processos_added">
+              <option value="" disabled selected>Selecione os processos</option>
+              <% if @processos %>
+                <% @processos.each do |processo| %>
+                  <option value="<%=processo.id%>"> <%=processo.nome%> </option>
+                <% end %>
+              <% end %>
+              </select>
+          </div>
+
+          <div class="input-field col s12" style="display: none;">
+            <%= text_field_tag(:identificador_organizacao, 1) %>
+          </div>   
+
+          <% if @projeto.new_record? %>  
+            <% #do nothing %>
+          <% else %>                      
+           <div class="input-field col s12">
+            <%= f.label :adicionar_dono_email %><br>
+            <%= text_field_tag(:dono) %>
+          </div>   
+          <% end %>
+
+          <% if @projeto.new_record? %>  
+            <div class="btn waves-effect waves-light">
+              <%= f.submit value:'Criar'%>
+              <i class="material-icons right">send</i>
+            </div>
+          <% else %>
+            <div class="btn waves-effect waves-light">
+              <%= f.submit value:'Editar' %>
+              <i class="material-icons right">send</i>
+          </div>
+          <% end %>
+          
+
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+
+<% else %>
+    <%= form_for(@projeto) do |f| %>
+    <% if @projeto.errors.any? %>
+
+    <div id="error_explanation">
+      <h2><%= pluralize(@projeto.errors.count, "error") %>
+        prohibited this projeto from being saved:</h2>
+
+      <ul>
+        <% @projeto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+
+
+
+    <div style="padding-left: 15%;padding-right: 15%;">
+      <div class="col s12 m6">
+        <div class="card-panel teal lighten-4">
+
+
+          <div class="input-field col s12">
+            <%= f.label :nome %><br>
+            <%= f.text_field :nome %>
+          </div>
+          <div class="input-field col s12">
+            <%= f.label :descricao %><br>
+            <%= f.text_area :descricao, class:'materialize-textarea', length:'120' %>
+          </div>
+          <div class="input-field col s12">
+            <%= f.label :dataInicio %><br>
+            <%= f.date_field :dataInicio, class:'datepicker' %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= f.label :dataFim %><br>
+            <%= f.date_field :dataFim, class:'datepicker' %><br/>
+          </div>
+
+          <div class="input-field col s12">
+              <%= f.label :adicionar_processos %><br><br>
+              <select multiple="multiple" name="processos_added[]" id="processos_added">
+              <option value="" disabled selected>Selecione os processos</option>
+              <% if @processos %>
+                <% @processos.each do |processo| %>
+                  <option value="<%=processo.id%>"> <%=processo.nome%> </option>
+                <% end %>
+              <% end %>
+              </select>
+          </div>
+
+          <div class="input-field col s12" style="display: none;">
+            <%= text_field_tag(:identificador_organizacao, 1) %>
+          </div>   
+
+          <% if @projeto.new_record? %>  
+            <% #do nothing %>
+          <% else %>                      
+           <div class="input-field col s12">
+            <%= f.label :adicionar_dono_email %><br>
+            <%= text_field_tag(:dono) %>
+          </div>   
+          <% end %>
+
+          <% if @projeto.new_record? %>  
+            <div class="btn waves-effect waves-light">
+              <%= f.submit value:'Criar'%>
+              <i class="material-icons right">send</i>
+            </div>
+          <% else %>
+            <div class="btn waves-effect waves-light">
+              <%= f.submit value:'Editar' %>
+              <i class="material-icons right">send</i>
+          </div>
+          <% end %>
+          
+
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+
 
 <% end %>
