@@ -29,7 +29,6 @@ class AtualizadorDataController < AtualizadorOrganizacaoController
 			@projetos.each do |projeto|
 				@datas << projeto.dataFim
 			end 
-			puts "Passou AQUI 3"
 			@portfolio.update_attribute(:dataFim, @datas.max)
 		end
 
@@ -44,7 +43,6 @@ class AtualizadorDataController < AtualizadorOrganizacaoController
 				@projetos.each do |projeto|
 					visitar_um_projeto(projeto.id)
 				end
-				puts "Passou AQUI 2"
 			end
 		
 
@@ -72,7 +70,6 @@ class AtualizadorDataController < AtualizadorOrganizacaoController
 				@projetos.each do |projeto|
 					visitar_processos_de_um_projeto(projeto.id)
 				end
-				puts "Passou AQUI 1"
 			end
 		end
 	end
