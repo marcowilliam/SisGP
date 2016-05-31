@@ -34,4 +34,8 @@ class Processo < Organizacao
     end
   end
 
+  def aceita_atualizador(atualizador_organizacao)
+    atualizador_organizacao.template(0, self.id)
+  end
+
 end

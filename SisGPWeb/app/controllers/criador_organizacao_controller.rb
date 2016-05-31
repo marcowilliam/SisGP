@@ -70,7 +70,7 @@ class CriadorOrganizacaoController < CriadorController
 	    @projeto_to_be_added = params[:projeto]
 	    respond_to do |format|
 	      if @processo.save
-	        format.html { redirect_to root_path, notice: 'Processo '+ @processo.nome + ' criado com sucesso' }
+	        format.html { redirect_to '/processos', notice: 'Processo '+ @processo.nome + ' criado com sucesso' }
 	        format.json { render :show, status: :created, location: @processo }
 	      else
 	        format.html { render :new }

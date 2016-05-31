@@ -26,4 +26,8 @@ class Projeto < Organizacao
 	    end
   	end
 
+  	def aceita_atualizador(atualizador_organizacao)
+    	atualizador_organizacao.template(1, self.id)
+  	end
+
 end

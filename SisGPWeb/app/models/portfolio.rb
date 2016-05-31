@@ -23,4 +23,9 @@ class Portfolio < Organizacao
       end 
     end
   end
+
+  def aceita_atualizador(atualizador_organizacao)
+    atualizador_organizacao.template(2, self.id)
+  end
+
 end
