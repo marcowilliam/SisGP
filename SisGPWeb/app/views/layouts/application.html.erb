@@ -3,8 +3,13 @@
 <head>
   <title>SisGP</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <% if logged_in? %>  
+		  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<% else %>
+		  <%= stylesheet_link_tag    'home', media: 'all', 'data-turbolinks-track' => true %>
+		  <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
+	<% end %>
   <%= csrf_meta_tags %>
   <%= render :partial => 'layouts/navbar' %>
 </head>

@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
-//= require bootstrap_sb_admin_base_v2
+//= require materialize-sprockets
+//= require materialize/extras/nouislider
 //= require jquery_ujs
 //= require_tree .
