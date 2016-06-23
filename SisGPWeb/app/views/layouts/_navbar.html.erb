@@ -22,7 +22,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/dashboard">SisGP</a>
+                <a class="navbar-brand" href="/dashboard"><strong><p style="color: #337ab7; float: left;" >SisGP</p></a></strong>
             </div>
             <!-- /.navbar-header -->
 
@@ -30,7 +30,7 @@
                 
                 <li >
                   
-                        <p><%= "Bem vindo "%> <strong> <%= current_user.nome%></p></strong>
+                        <p style="color: orange;"><%= "Bem vindo "%> <strong style="color:  green;"> <%= current_user.nome%></p></strong>
                     
                 </li>
                 <!-- /.dropdown -->
@@ -67,15 +67,9 @@
                             </div>
                             <!-- /input-group -->
                         </li>
-                        <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Portfólios</a>
-                        </li>
-                        <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Projetos</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Processos</a>
-                        </li>
+                         <li><a href="/portfolios"><i class="fa fa-briefcase" aria-hidden="true"></i> Portfolios</a></li>
+                          <li><a href="/projetos"><i class="fa fa-folder" aria-hidden="true"></i> Projetos</a></li>
+                          <li><a href="/processos"><i class="fa fa-line-chart" aria-hidden="true"></i> Processos</a></li>
                       
                         
                     </ul>

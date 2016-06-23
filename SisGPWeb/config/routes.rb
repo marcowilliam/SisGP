@@ -21,6 +21,17 @@ end
   match "/processos/atividades/:id/:id/edit" => 'processos#update_atividade', :via => :post, :as => :atividade_update
   match "/processos/atividade/deletar/:id" => 'processos#destroy_atividade', :as => :atividade_deletar, :via => :get
 
+  match "/processos/:id/edit" => 'processos#update', :as => :processo_editar, :via => :post
+  match "/processos/new" => 'processos#create', :as => :processo_criar, :via => :post
+
+  match "/projetos/new" => 'projetos#create', :as => :projeto_criar, :via => :post
+  match "/projetos/:id/edit" => 'projetos#update', :as => :projeto_editar, :via => :post
+
+  match "/portfolios/new" => 'portfolios#create', :as => :portfolio_criar, :via => :post
+  match "/portfolios/:id/edit" => 'portfolios#update', :as => :portfolio_editar, :via => :post
+
+  match '/atividades/:id' => 'atividades#show', :as => :atividade, :via => :get
+
   get '/dashboard' => 'portfolios#index', as: 'dashboard'
   #get '/processos' => 'processos#index', as: 'processos'
   get 'static_pages/home' => 'static_pages#home'
