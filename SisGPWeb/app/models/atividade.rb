@@ -5,6 +5,7 @@ class Atividade < ActiveRecord::Base
   def adicionar_responsavel(id)
   	@user_to_be_added = Usuario.find(id)
   	if !self.responsaveis.include?(@user_to_be_added)
+      self.responsaveis.destroy_all
   		self.responsaveis << @user_to_be_added
   	else
   		#do nothing

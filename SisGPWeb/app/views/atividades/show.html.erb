@@ -1,24 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div id="page-wrapper">
+    <p id="notice"><%= notice %></p>
+    <br>
+    <div class="row">
+                <div class="col-lg-12">
+                <div style="float: right; margin-right: 1%; margin-top: 1%">
+                    <% if @atividade.responsaveis.include?(current_user) || @atividade.processo.donos.include?(current_user) %> 
+                    <%= link_to raw("<i class='fa fa-pencil' aria-hidden='true'></i>"), atividade_editar_path(@atividade),:class=>"btn btn-info btn-circle btn-lg"  %>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @atividade.nome %>
-</p>
+                    <%= link_to raw("<i class='fa fa-times'></i>"), @atividade, method: :delete, data: { confirm: "Deseja mesmo excluir o atividade '#{@atividade.nome}' ?"}, :class=>"btn btn-danger btn-circle btn-lg"  %>
+                    <% end %>
+                 </div>
+                <div class="jumbotron">
+                    
+                   
+                   <center>
+                        <h2><%= @atividade.nome %></h2>
+                        <p>
+                        <%= @atividade.descricao %>
+                        </p>
+                        <br><br>
+                        <p><strong>Data inicial:</strong>
+                        <%= @atividade.dataInicio %>
+                        
+                        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data final:</strong>
+                         <%= @atividade.dataFim %></p>
+                         </center>
+                         <p style="margin-left: 24.8%;"><strong>Responsável:</strong>
+                         <% @atividade.responsaveis.each.with_index do |responsavel, index| %>
+                            <% if (index > 0) %>
+                            , 
+                            <% end %>
+                            <%= responsavel.nome %>
+                         <% end %>
+                         </p>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @atividade.descricao %>
-</p>
+                         <p style="margin-left: 24.8%;"><strong>Status:</strong>
+                         <% if @atividade.finalizada %>
+                            finalizada
+                        <% else %>
+                            em andamento
+                        <% end %>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+      </div>
 
-<p>
-  <strong>Datainicio:</strong>
-  <%= @atividade.dataInicio %>
-</p>
-
-<p>
-  <strong>Datafim:</strong>
-  <%= @atividade.dataFim %>
-</p>
-
-<%= link_to 'Edit', atividade_editar_path(@atividade) %> |
-<%= link_to 'Back', '/processos' %>
+ 
+    </div>
+</div>
