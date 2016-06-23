@@ -5,7 +5,17 @@ class ProcessosController < ApplicationController
   # GET /processos
   # GET /processos.json
   def index
-    @processos = current_user.processos
+    @processos = Array.new
+    current_user.processos.each do |processo|
+      @processos << processo
+    end
+    Processo.all.each do |processo|
+      processo.atividades.each do |atividade|
+        if((atividade.responsaveis.include?(current_user)) && (!@processos.include?(processo)))
+          @processos << processo
+        end
+      end
+    end
   end
 
   # GET /processos/1
@@ -103,6 +113,11 @@ class ProcessosController < ApplicationController
 
   def update_atividade
     @atividade = Atividade.find params[:id]
+    responsavel_to_be_added_email = params[:responsavel]
+    @responsavel_to_be_added = Usuario.where(:email => responsavel_to_be_added_email).first
+    if @responsavel_to_be_added
+      @atividade.adicionar_responsavel (@responsavel_to_be_added.id)
+    end
     respond_to do |format|
       if @atividade.update(atividade_params)
         format.html { redirect_to '/processos', notice: 'Atividade ' + @atividade.nome + ' atualizada com sucesso.' }
@@ -137,7 +152,7 @@ class ProcessosController < ApplicationController
         
     end
     def atividade_params
-        params.require(:atividade).permit(:nome, :descricao, :dataInicio, :dataFim)
+        params.require(:atividade).permit(:nome, :descricao, :dataInicio, :dataFim, :finalizada)
     end
 
 end

@@ -1,24 +1,106 @@
-<p id="notice"><%= notice %></p>
+<div id="page-wrapper">
+	<p id="notice"><%= notice %></p>
+	<br>
+	<div class="row">
+                <div class="col-lg-12">
+                <div style="float: right; margin-right: 1%; margin-top: 1%">
+                  <% if @processo.donos.include?(current_user)  %> 
+              		<%= link_to raw("<i class='fa fa-pencil' aria-hidden='true'></i>"), edit_processo_path(@processo),:class=>"btn btn-info btn-circle btn-lg"  %>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @processo.nome %>
-</p>
+              		<%= link_to raw("<i class='fa fa-times'></i>"), @processo, method: :delete, data: { confirm: "Deseja mesmo excluir o processo '#{@processo.nome}' ?"}, :class=>"btn btn-danger btn-circle btn-lg"  %>
+                  <% end %>
+                 </div>
+                <div class="jumbotron">
+                    
+                   
+                   <center>
+                        <h2><%= @processo.nome %></h2>
+                        <p>
+                        <%= @processo.descricao %>
+                        </p>
+                        <br><br>
+                        <p><strong>Data inicial:</strong>
+	  					<%= @processo.dataInicio %>
+	  					
+	  					<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data final:</strong>
+	 					 <%= @processo.dataFim %></p>
+	 					 </center>
+	 					 <p style="margin-left: 24.8%;"><strong>Donos:</strong>
+	 					 <% @processo.donos.each.with_index do |dono, index| %>
+	 					 	<% if (index > 0) %>
+	 					 	, 
+	 					 	<% end %>
+	 					 	<%= dono.nome %>
+	 					 <% end %>
+	 					 </p>
+	 					 
+	 					 
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+      </div>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @processo.descricao %>
-</p>
+      
+      <div class="row">
+      <div class="col-lg-12">
+                    <div class="panel panel-default">
 
-<p>
-  <strong>Datainicio:</strong>
-  <%= @processo.dataInicio %>
-</p>
-
-<p>
-  <strong>Datafim:</strong>
-  <%= @processo.dataFim %>
-</p>
-
-<%= link_to 'Edit', edit_processo_path(@processo),:class=>"waves-effect waves-light btn"  %> |
-<%= link_to 'Back', processos_path ,:class=>"waves-effect waves-light btn"  %>
+                        <div class="panel-heading" style="padding-bottom: 1.5%;">
+                       <center>
+                       <% if @processo.donos.include?(current_user)  %> 
+                        <%= link_to raw("<i class='fa fa-plus' aria-hidden='true'></i>"), atividade_criar_path(@processo), :class=>"btn btn-success btn-circle", :style=>"float: left;"%>
+                      <% end %>
+        
+                        <strong>
+                            Atividades
+                            </strong>
+                        </center>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <% if @processo.atividades.size > 0 %>
+                                    <thead>
+                                        <tr>
+                                            <th>Título</th>
+                                            <th>Data Inicial</th>
+                                            <th>Data Final</th>
+                                            <th>Responsável</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% @processo.atividades.each do |atividade| %>
+                                    <% if atividade.finalizada %>
+                                        <tr class="success">
+                                     <% elsif atividade.dataFim <= Date.today %>
+                                     	 <tr class="danger">
+                                     <% else %>
+                                     	<tr>
+                                     <% end %>
+                                            <td><%= link_to atividade.nome,atividade %></td>
+                                            <td><%= atividade.dataInicio %></td>
+                                            <td><%= atividade.dataFim %></td>
+                                            <td><%= atividade.responsaveis.first.nome %></td>
+                                        </tr>
+                                     <%end%>
+                                    </tbody>
+                                    <% else %>
+                                        <div class="alert alert-success alert-info" >
+                                      <center>
+                                      Este processo não possui atividades
+                                      </center>
+                                      </div>
+                                    <% end %>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                </div>
+ 
+	</div>
+</div>

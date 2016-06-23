@@ -1,89 +1,81 @@
-<div class="container">
-<p id="notice"><%= notice %></p>
+<div id="page-wrapper">
+<% if notice %>
+  <br>
+  <div class="alert alert-success alert-dismissable" >
+                                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                  <%= notice %>
+  </div>
+<% end %>
+            <div class="row">
+                <div class="col-lg-12">
+                <center>
+                
+                 
+                    <h1 class="page-header">Processos</h1>
 
-<center>
-  <h1>Processos</h1>
-</center>
-
-<ul class="collapsible" data-collapsible="accordion">
-  <% @processos.each do |processo| %>
-  <li>
-    <div class="collapsible-header teal lighten-2">
-      <i class="material-icons">tab</i><%= processo.nome%></div>
-
-    <div class="collapsible-body">
-      <table >
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Data Inicio</th>
-            <th>Data Fim</th>
-            <th>Donos</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody >
-          <tr>
-            <td><%= processo.nome %></td>
-            <td><%= processo.descricao %></td>
-            <td><%= processo.dataInicio %></td>
-            <td><%= processo.dataFim %></td>
-            <td><%  processo.donos.each do |dono| %> 
-
-                <%= dono.nome%><br>
-                <%end%>
-            </td>
-            <td></td>
-            <td><%= link_to 'Editar', edit_processo_path(processo),:class=>"waves-effect waves-light btn"  %></td>
-            <td><%= link_to 'Deletar', processo, method: :delete, data: { confirm: "Deseja mesmo excluir o processo '#{processo.nome}' ?"}, :class=>"red darken-1 btn"  %></td>
-
-            <td><%= link_to 'Criar Atividade', atividade_criar_path(processo) , :class=>"waves-effect waves-light btn"  %></td>
-          </tr>
-        </tbody>
-
-      </table>
-
-      <ul class="collapsible" data-collapsible="accordion">
-        <li>
-          <div class="collapsible-header teal lighten-4">
-            <i class="material-icons">assignment</i>Listar Atividades
-          </div>
-          <div class="collapsible-body">
-            <% processo.atividades.each do |atividade| %>
-            <div class="collection">
-              <div class="row collection-item teal accent-2">
-                <div class="col s1  ">Nome:
-                  <%= atividade.nome %>
-                </div>
-                <div class="col s1">Descrição:
-                  <%= atividade.descricao %>
-                </div>
-                <div class="col s1"> Responsáveis:
-                  <% atividade.responsaveis.each do |responsavel| %>
-                     <%= responsavel.nome %><br>
-                  <% end %>
+                  </center>
                 </div>
 
-                <div class=" col s1 offset-s2"><%= link_to 'Mostrar', @atividade, :class=>"waves-effect waves btn"  %></div>
-                <div class="col s1 offset-s1">
-                  <%= link_to 'Editar', atividade_editar_path(processo , atividade),:class=>"waves-effect waves-light btn"  %></div>
-              </div>
+                <!-- /.col-lg-12 -->
             </div>
-            <%end%>
-          </div>
-        </li>
-      </ul>
+            <!-- /.row -->
+            <div class="row">
+            <% if @processos.size > 0%>
+            <center>
 
+            <div><%= link_to raw("<i class='fa fa-plus' aria-hidden='true'></i>"), new_processo_path,:class=>"btn btn-success"  %></div>
+            </center>
+            <br>
+           
 
-    </div>
-  </li>
-  <% end %>
-</ul>
+                <% @processos.each do |processo| %>
+                    <!-- /.col-lg-4 -->
+                    <div class="col-lg-4" >
+                    <a href="">
+                        <div class="panel panel-red" >
+                            <div class="panel-heading">
+                            <center>
+                            <%= link_to processo.nome,processo, :style=>"color:white;" %>
 
-<br>
+                            </center>
 
+                            </div>
+                            <div class="panel-body" style="height:100px;">
+                                <p style="max-width:100%;
+                                    word-wrap:break-word;">
+                                    <%= processo.descricao %>
+                                </p>
+                            </div>
+                            <div class="panel-footer" style="height: 40px">
+                            <center>
+                            <p style="float: left;">
+                            <%= processo.dataInicio %>
+                            </p>
+                            <p style="float: right;">
+                            <%= processo.dataFim %>
+                            </p>
+                            </center>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+              <% else %>
 
-<%= link_to 'Novo Processo', new_processo_path,:class=>"waves-effect waves-light btn"  %>
+                <div class="alert alert-success alert-info" >
+                                  <center>
+                                  Você não possui processos
+                                  </center>
+                </div>
+                <center>
+
+                <div><%= link_to raw("<i class='fa fa-plus' aria-hidden='true'></i>"), new_processo_path,:class=>"btn btn-success"  %></div>
+                </center>
+              <% end %>
+              
+              
+            </div>
+
 </div>
+                
+

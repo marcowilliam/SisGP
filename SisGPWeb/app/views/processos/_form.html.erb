@@ -1,67 +1,46 @@
-<%= form_for(@processo) do |f| %>
-<% if @processo.errors.any? %>
+<%=  bootstrap_form_for(:processo) do |f| %>
+  <% if @processo.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@processo.errors.count, "error") %>
+      prohibited this processo from being saved:</h2>
 
-<div id="error_explanation">
-  <ul>
-    <% @processo.errors.full_messages.each do |message| %>
-    <li style="color: red"><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-
-<div style="padding-left: 15%;padding-right: 15%;">
-  <div class="col s12 m6">
-    <div class="card-panel teal lighten-4">
-
-
-      <div class="input-field col s12">
-        <%= f.label :nome %><br>
-        <%= f.text_field :nome %>
-      </div>
-      <div class="input-field col s12">
-        <%= f.label :descricao %><br>
-        <%= f.text_area :descricao, class:'materialize-textarea', length:'120' %>
-      </div>
-      <div class="input-field col s12">
-        <%= f.label :data_incial %><br>
-        <%= f.date_field :dataInicio, class:'datepicker' %>
-      </div>
-
-      <div class="input-field col s12">
-        <%= f.label :data_final %><br>
-        <%= f.date_field :dataFim, class:'datepicker' %><br/>
-      </div>
-
-      <div class="input-field col s12" style="display: none;">
-        <%= text_field_tag(:identificador_organizacao, 2) %>
-      </div>   
-
-      <% if @processo.new_record? %>  
-        <% #do nothing %>
-      <% else %>                      
-       <div class="input-field col s12">
-        <%= f.label :adicionar_dono_email %><br>
-        <%= text_field_tag(:dono) %>
-      </div>   
+    <ul>
+      <% @processo.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
       <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="row" style="margin-left: 10%">
+  <div class="col-lg-10">
 
-      <% if @processo.new_record? %>  
-        <div class="btn waves-effect waves-light">
-          <%= f.submit value:'Criar'%>
-          <i class="material-icons right">send</i>
-        </div>
+          <div class="input-field col s12" style="display: none;">
+          <%= text_field_tag(:identificador_organizacao, 2) %>
+          </div> 
+
+          <%= f.text_field :nome %>
+          <%= f.text_area :descricao, length:'120' %>
+          <%= f.text_field :dataInicio, class: 'datepicker' %>
+          <%= f.text_field :dataFim, class: 'datepicker' %>
+          
+          <% if @processo.new_record? %>  
+          <% #do nothing %>
+          <% else %>    
+            <%= f.label :adicionar_dono_email %><br>                  
+            <%= text_field_tag(:dono) %> 
+          <% end %>
+
+        <br><br>
+        <center>
+        <% if @processo.new_record? %>  
+          <%= f.submit value:'Criar', class: 'btn btn-success btn-lg'%>
       <% else %>
-        <div class="btn waves-effect waves-light">
-          <%= f.submit value:'Editar' %>
-          <i class="material-icons right">send</i>
-      </div>
+          <%= f.submit value:'Editar', class: 'btn btn-success btn-lg' %>
       <% end %>
-      
-
+      </center>
+        
+      </div>
     </div>
   </div>
-</div>
+  <% end %>
 
-<% end %>
