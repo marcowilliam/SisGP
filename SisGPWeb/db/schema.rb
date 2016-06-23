@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160530204904) do
     t.text     "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
+    t.boolean  "finalizada"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "processo_id"

@@ -5,6 +5,7 @@ class CreateAtividades < ActiveRecord::Migration
       t.text :descricao
       t.date :dataInicio
       t.date :dataFim
+      t.boolean :finalizada
 
       t.timestamps null: false
     end
