@@ -13,5 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require bootstrap_sb_admin_base_v2
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js
 //= require jquery_ujs
 //= require_tree .
