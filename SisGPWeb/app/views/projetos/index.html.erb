@@ -1,87 +1,83 @@
-<div class="container">
-<p id="notice"><%= notice %></p>
+<div id="page-wrapper">
+<% if notice %>
+  <br>
+  <div class="alert alert-success alert-dismissable" >
+                                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                  <%= notice %>
+  </div>
+<% end %>
+            <div class="row">
+                <div class="col-lg-12">
+                <center>
+                
+                 
+                    <h1 class="page-header">Projetos</h1>
 
-<center>
-  <h1>Projetos</h1>
-</center>
-
-<ul class="collapsible" data-collapsible="accordion">
-  <% @projetos.each do |projeto| %>
-  <li>
-    <div class="collapsible-header teal lighten-2">
-      <i class="material-icons">tab</i><%= projeto.nome%></div>
-
-    <div class="collapsible-body">
-      <table >
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Data Inicio</th>
-            <th>Data Fim</th>
-            <th>Donos</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody >
-          <tr>
-            <td><%= projeto.nome %></td>
-            <td><%= projeto.descricao %></td>
-            <td><%= projeto.dataInicio %></td>
-            <td><%= projeto.dataFim %></td>
-            <td><%  projeto.donos.each do |dono| %> 
-
-                <%= dono.nome%><br>
-                <%end%>
-            </td>
-            <td></td>
-            <td><%= link_to 'Editar', edit_projeto_path(projeto),:class=>"waves-effect waves-light btn"  %></td>
-            <td><%= link_to 'Deletar', projeto, method: :delete, data: { confirm: "Deseja mesmo excluir o projeto '#{projeto.nome}' ?"}, :class=>"red darken-1 btn"  %></td>
-          </tr>
-        </tbody>
-
-      </table>
-
-      <ul class="collapsible" data-collapsible="accordion">
-        <li>
-          <div class="collapsible-header teal lighten-4">
-            <i class="material-icons">assignment</i>Listar processos
-          </div>
-          <div class="collapsible-body">
-            <% projeto.processos.each do |processo| %>
-            <div class="collection">
-              <div class="row collection-item teal accent-2">
-                <div class="col s1  ">Nome:
-                  <%= processo.nome %>
-                </div>
-                <div class="col s1">Descrição:
-                  <%= processo.descricao %>
-                </div>
-                <div class="col s1"> Responsáveis:
-                  <% processo.donos.each do |responsavel| %>
-                     <%= responsavel.nome %><br>
-                  <% end %>
+                  </center>
                 </div>
 
-                <div class=" col s1 offset-s2"><%= link_to 'Ver', '/processos', :class=>"waves-effect waves btn"  %></div>
-                <div class="col s1">
-               \
-              </div>
+                <!-- /.col-lg-12 -->
             </div>
-            <%end%>
-          </div>
-        </li>
-      </ul>
+            <!-- /.row -->
+            <div class="row">
+            <% if @projetos.size > 0%>
+            <center>
 
+            <div><%= link_to raw("<i class='fa fa-plus' aria-hidden='true'></i>"), new_projeto_path,:class=>"btn btn-success"  %></div>
+            </center>
+            <br>
+           
 
-    </div>
-  </li>
-  <% end %>
-</ul>
+                <% @projetos.each do |projeto| %>
+                    <!-- /.col-lg-4 -->
+                    <div class="col-lg-4" >
+                        <div class="panel panel-yellow" >
+                            <div class="panel-heading">
+                            <center>
+                            <%= link_to projeto.nome,projeto, :style=>"color:white;" %>
 
-<br>
+                            </center>
 
+                            </div>
+                            <div class="panel-body" style="height:100px;">
+                                <p style="max-width:100%;
+                                    word-wrap:break-word;">
+                                    <%= projeto.descricao %>
+                                </p>
+                            </div>
+                            <div class="panel-footer" style="height: 40px">
+                            <center>
+                            <p style="float: left;">
+                            <%= projeto.dataInicio %>
+                            </p>
+                            <p style="float: right;">
+                            <%= projeto.dataFim %>
+                            </p>
+                            </center>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+              <% else %>
 
-<%= link_to 'Novo projeto', new_projeto_path,:class=>"waves-effect waves-light btn"  %>
+                <div class="alert alert-success alert-info" >
+                                  <center>
+                                  Você não possui projetos
+                                  </center>
+                </div>
+                <center>
+
+                <div><%= link_to raw("<i class='fa fa-plus' aria-hidden='true'></i>"), new_projeto_path,:class=>"btn btn-success"  %></div>
+                </center>
+              <% end %>
+              
+              
+            </div>
+            <br><br>
+            <center>
+                
+              </center>
 </div>
+                
+
