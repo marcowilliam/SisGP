@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160624000436) do
   create_table "comentarios", force: :cascade do |t|
     t.text     "assunto"
     t.text     "conteudo"
+    t.boolean  "anonimo"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "usuario_id"

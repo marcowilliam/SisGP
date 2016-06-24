@@ -69,7 +69,13 @@
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=comentario.id%>"><%= comentario.usuario.nome %>: <%=comentario.assunto%></a>
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=comentario.id%>">
+                                                <%if comentario.usuario%>
+                                                <%= comentario.usuario.nome %>
+                                                <% else %>
+                                                Anônimo
+                                                <% end %>
+                                                : <%=comentario.assunto%></a>
                                             </h4>
                                         </div>
                                         <div id="collapse<%=comentario.id%>" class="panel-collapse collapse">

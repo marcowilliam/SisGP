@@ -28,9 +28,14 @@ class AtividadesController < ApplicationController
 
   def create_comentario
     @comentario = Comentario.new(comentario_params)
-    @comentario.usuario_id = current_user.id
     @atividade = Atividade.find(params[:atividade_id])
     @comentario.atividade = @atividade
+    if @comentario.anonimo
+      print ":DLFHJLDH:FH:F***********************"
+      @comentario.usuario_id = nil
+    else
+      @comentario.usuario_id = current_user.id
+    end
 
     respond_to do |format|
       if @comentario.save
@@ -74,7 +79,7 @@ class AtividadesController < ApplicationController
     end
 
     def comentario_params
-      params.require(:comentario).permit(:assunto, :conteudo)
+      params.require(:comentario).permit(:assunto, :conteudo, :anonimo)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
