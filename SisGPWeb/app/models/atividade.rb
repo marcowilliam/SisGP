@@ -1,5 +1,6 @@
 class Atividade < ActiveRecord::Base
   belongs_to :processo
+  has_many :comentarios
   has_and_belongs_to_many :responsaveis, class_name: 'Usuario'
 
   def adicionar_responsavel(id)

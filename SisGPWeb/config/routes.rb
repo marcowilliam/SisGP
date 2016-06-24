@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :departamentos
+  resources :comentarios
   resources :usuarios
   get 'sign_in' => 'sessions#new' 
   post 'sign_in' => 'sessions#create' 
@@ -26,6 +26,8 @@ end
 
   match "/projetos/new" => 'projetos#create', :as => :projeto_criar, :via => :post
   match "/projetos/:id/edit" => 'projetos#update', :as => :projeto_editar, :via => :post
+
+  match "/comentario/new" => 'atividades#create_comentario', :as => :comentario_criar, :via => :post
 
   match "/portfolios/new" => 'portfolios#create', :as => :portfolio_criar, :via => :post
   match "/portfolios/:id/edit" => 'portfolios#update', :as => :portfolio_editar, :via => :post
