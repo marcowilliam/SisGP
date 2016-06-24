@@ -10,6 +10,7 @@ class AtividadesController < ApplicationController
   # GET /atividades/1
   # GET /atividades/1.json
   def show
+    @comentario = Comentario.new
   end
 
   # GET /atividades/new
@@ -23,6 +24,23 @@ class AtividadesController < ApplicationController
   # POST /atividades
   # POST /atividades.json
   def create
+  end
+
+  def create_comentario
+    @comentario = Comentario.new(comentario_params)
+    @comentario.usuario_id = current_user.id
+    @atividade = Atividade.find(params[:atividade_id])
+    @comentario.atividade = @atividade
+
+    respond_to do |format|
+      if @comentario.save
+        format.html { redirect_to @atividade, notice: 'Comentario criado com sucesso.' }
+        format.json { render :show, status: :created, location: @atividade }
+      else
+        format.html { render :new }
+        format.json { render json: @comentario.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /atividades/1
@@ -53,6 +71,10 @@ class AtividadesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_atividade
       @atividade = Atividade.find(params[:id])
+    end
+
+    def comentario_params
+      params.require(:comentario).permit(:assunto, :conteudo)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

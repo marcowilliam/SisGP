@@ -1,5 +1,11 @@
 <div id="page-wrapper">
-    <p id="notice"><%= notice %></p>
+    <% if notice %>
+  <br>
+  <div class="alert alert-success alert-dismissable" >
+                                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                  <%= notice %>
+  </div>
+<% end %>
     <br>
     <div class="row">
                 <div class="col-lg-12">
@@ -43,6 +49,64 @@
                     </div>
                 </div>
                 <!-- /.col-lg-12 -->
+      </div>
+
+
+      <div class="row">
+      <div class="col-lg-12">
+            <div class="panel-group" id="accordion">
+            <% if @atividade.comentarios.size > 0 %>
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                        <center>
+                            <strong>Comentários</strong>
+                        </center>
+                        </div>
+                        <!-- .panel-heading -->
+                        <div class="panel-body">
+                <% @atividade.comentarios.each do |comentario| %>
+
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=comentario.id%>"><%= comentario.usuario.nome %>: <%=comentario.assunto%></a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse<%=comentario.id%>" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <%= comentario.conteudo %>
+                                            </div>
+                                        </div>
+                                    </div>
+                <% end %>
+                </div>
+                </div>
+            <% else %>
+                <div class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <center>
+                        Esta atividade não possui comentários.
+                    </center>
+                </div>
+            <% end %>
+            </div>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="col-lg-12">
+            <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <center>
+                            <strong>Comentar</strong>
+                            </center>
+                        </div>
+                        <!-- .panel-heading -->
+                        <div class="panel-body">
+                            <%= render 'form_comentario' %>
+                            </div>
+                            </div>
+      </div>
       </div>
 
  
