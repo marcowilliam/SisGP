@@ -1,0 +1,25 @@
+<%= bootstrap_form_for :comentario, :url =>{:action => "create_comentario", :atividade_id => @atividade.id} do |f| %>
+  <% if @comentario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
+
+      <ul>
+      <% @comentario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :assunto %>
+  </div>
+  <div class="field">
+    <%= f.text_area :conteudo %>
+  </div>
+  <div class="actions">
+  	<center>
+    <%= f.submit value: 'Comentar', class:'btn btn-success' %>
+    </center>
+  </div>
+<% end %>
