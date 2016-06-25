@@ -6,18 +6,14 @@
 #
 default: &default
   adapter: postgresql
-  encoding: utf8
-  database: sisgp
-  host: 127.0.0.1
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: macintosh
-  password:
 
 development:
-  adapter: postgresql
-  host: localhost
-  username: user
-  database: app-dev
+  <<: *default
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,10 +23,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  encoding: utf8
-  database: sisgp
-  host: 127.0.0.1
-  pool: 5
-  username: macintosh
-  password:
+  <<: *default
+  database: db/production.sqlite3
