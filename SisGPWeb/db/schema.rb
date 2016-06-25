@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160624000436) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "atividades", force: :cascade do |t|
     t.string   "nome"
     t.text     "descricao"
@@ -24,15 +27,15 @@ ActiveRecord::Schema.define(version: 20160624000436) do
     t.integer  "processo_id"
   end
 
-  add_index "atividades", ["processo_id"], name: "index_atividades_on_processo_id"
+  add_index "atividades", ["processo_id"], name: "index_atividades_on_processo_id", using: :btree
 
   create_table "atividades_usuarios", id: false, force: :cascade do |t|
     t.integer "atividade_id", null: false
     t.integer "usuario_id",   null: false
   end
 
-  add_index "atividades_usuarios", ["atividade_id", "usuario_id"], name: "index_atividades_usuarios_on_atividade_id_and_usuario_id"
-  add_index "atividades_usuarios", ["usuario_id", "atividade_id"], name: "index_atividades_usuarios_on_usuario_id_and_atividade_id"
+  add_index "atividades_usuarios", ["atividade_id", "usuario_id"], name: "index_atividades_usuarios_on_atividade_id_and_usuario_id", using: :btree
+  add_index "atividades_usuarios", ["usuario_id", "atividade_id"], name: "index_atividades_usuarios_on_usuario_id_and_atividade_id", using: :btree
 
   create_table "atualizavels", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -49,8 +52,8 @@ ActiveRecord::Schema.define(version: 20160624000436) do
     t.integer  "atividade_id"
   end
 
-  add_index "comentarios", ["atividade_id"], name: "index_comentarios_on_atividade_id"
-  add_index "comentarios", ["usuario_id"], name: "index_comentarios_on_usuario_id"
+  add_index "comentarios", ["atividade_id"], name: "index_comentarios_on_atividade_id", using: :btree
+  add_index "comentarios", ["usuario_id"], name: "index_comentarios_on_usuario_id", using: :btree
 
   create_table "departamentos", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -73,42 +76,37 @@ ActiveRecord::Schema.define(version: 20160624000436) do
     t.string   "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "projetos_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "portfolios", ["projetos_id"], name: "index_portfolios_on_projetos_id"
 
   create_table "portfolios_usuarios", id: false, force: :cascade do |t|
     t.integer "portfolio_id", null: false
     t.integer "usuario_id",   null: false
   end
 
-  add_index "portfolios_usuarios", ["portfolio_id", "usuario_id"], name: "index_portfolios_usuarios_on_portfolio_id_and_usuario_id"
-  add_index "portfolios_usuarios", ["usuario_id", "portfolio_id"], name: "index_portfolios_usuarios_on_usuario_id_and_portfolio_id"
+  add_index "portfolios_usuarios", ["portfolio_id", "usuario_id"], name: "index_portfolios_usuarios_on_portfolio_id_and_usuario_id", using: :btree
+  add_index "portfolios_usuarios", ["usuario_id", "portfolio_id"], name: "index_portfolios_usuarios_on_usuario_id_and_portfolio_id", using: :btree
 
   create_table "processos", force: :cascade do |t|
     t.string   "nome"
     t.text     "descricao"
     t.date     "dataInicio"
     t.date     "dataFim"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "atividades_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "projeto_id"
   end
 
-  add_index "processos", ["atividades_id"], name: "index_processos_on_atividades_id"
-  add_index "processos", ["projeto_id"], name: "index_processos_on_projeto_id"
+  add_index "processos", ["projeto_id"], name: "index_processos_on_projeto_id", using: :btree
 
   create_table "processos_usuarios", id: false, force: :cascade do |t|
     t.integer "usuario_id",  null: false
     t.integer "processo_id", null: false
   end
 
-  add_index "processos_usuarios", ["processo_id", "usuario_id"], name: "index_processos_usuarios_on_processo_id_and_usuario_id"
-  add_index "processos_usuarios", ["usuario_id", "processo_id"], name: "index_processos_usuarios_on_usuario_id_and_processo_id"
+  add_index "processos_usuarios", ["processo_id", "usuario_id"], name: "index_processos_usuarios_on_processo_id_and_usuario_id", using: :btree
+  add_index "processos_usuarios", ["usuario_id", "processo_id"], name: "index_processos_usuarios_on_usuario_id_and_processo_id", using: :btree
 
   create_table "projetos", force: :cascade do |t|
     t.string   "nome"
@@ -117,20 +115,18 @@ ActiveRecord::Schema.define(version: 20160624000436) do
     t.date     "dataFim"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "processos_id"
     t.integer  "portfolio_id"
   end
 
-  add_index "projetos", ["portfolio_id"], name: "index_projetos_on_portfolio_id"
-  add_index "projetos", ["processos_id"], name: "index_projetos_on_processos_id"
+  add_index "projetos", ["portfolio_id"], name: "index_projetos_on_portfolio_id", using: :btree
 
   create_table "projetos_usuarios", id: false, force: :cascade do |t|
     t.integer "projeto_id", null: false
     t.integer "usuario_id", null: false
   end
 
-  add_index "projetos_usuarios", ["projeto_id", "usuario_id"], name: "index_projetos_usuarios_on_projeto_id_and_usuario_id"
-  add_index "projetos_usuarios", ["usuario_id", "projeto_id"], name: "index_projetos_usuarios_on_usuario_id_and_projeto_id"
+  add_index "projetos_usuarios", ["projeto_id", "usuario_id"], name: "index_projetos_usuarios_on_projeto_id_and_usuario_id", using: :btree
+  add_index "projetos_usuarios", ["usuario_id", "projeto_id"], name: "index_projetos_usuarios_on_usuario_id_and_projeto_id", using: :btree
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "nome"
@@ -142,4 +138,9 @@ ActiveRecord::Schema.define(version: 20160624000436) do
     t.string   "password_digest"
   end
 
+  add_foreign_key "atividades", "processos"
+  add_foreign_key "comentarios", "atividades"
+  add_foreign_key "comentarios", "usuarios"
+  add_foreign_key "processos", "projetos"
+  add_foreign_key "projetos", "portfolios"
 end
