@@ -18,12 +18,12 @@ development:
   timeout: 5000
 test:
   adapter: postgresql
-  database: sisgp_test
+  database: sisgp
   pool: 5
   timeout: 5000
 
 production:
   adapter: postgresql
-  database: sisgp_production
+  database: sisgp
   pool: 5
   timeout: 5000
