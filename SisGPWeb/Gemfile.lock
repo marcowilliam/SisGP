@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    abstract_method (1.2.1)
     actionmailer (4.2.5.1)
       actionpack (= 4.2.5.1)
       actionview (= 4.2.5.1)
@@ -206,7 +205,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  abstract_method
   autoprefixer-rails
   bcrypt (~> 3.1.7)
   bootstrap-datepicker-rails
