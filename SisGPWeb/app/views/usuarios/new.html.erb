@@ -1,44 +1,7 @@
 <div class="container">
-<%= form_for @usuario do |f| %>
-	<% if @usuario.errors.any? %>
-	<div id="error_explanation">
-		<div class="alert-error">
-			O formulário contém <%= pluralize(@usuario.errors.count, "erro") %>.
-		</div>
-		<ul>
-			<% @usuario.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
-	<% end %>
-
-	<div class="field">
-		<%= f.label :nome %>
-		<%= f.text_field :nome %>
-	</div>
-	<div class="field">
-		<%= f.label :email %>
-		<%= f.text_field  :email %>
-	</div>
-	<div class="field">
-		<%= f.label :telefone %>
-		<%= f.text_field  :telefone %>
-	</div>
-	<div class="field">
-		<%= f.label :login %>
-		<%= f.text_field  :login %>
-	</div>
-	<div class="field">
-		<%= f.label :password %>
-		<%= f.password_field :password %>
-	</div>
-	<div class="field">
-		<%= f.label :password_confirmation %>
-		<%= f.password_field :password_confirmation %>
-	</div>
-	<div class="actions">
-		<%= f.submit "Cadastrar"%>
-	</div>
-<% end %>
+<div id="page-wrapper">
+<center>
+<br><h3>Cadastre-se</h3><br>
+</center>
+<%= render 'form' %>
 </div>

@@ -1,0 +1,35 @@
+	<%=  bootstrap_form_for(@usuario) do |f| %>
+	  <% if @usuario.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@usuario.errors.count, "error") %>
+	      prohibited this usuario from being saved:</h2>
+
+	    <ul>
+	      <% @usuario.errors.full_messages.each do |message| %>
+	      <li><%= message %></li>
+	      <% end %>
+	    </ul>
+	  </div>
+	  <% end %>
+
+	  <div class="row" style="margin-left: 10%">
+	  <div class="col-lg-10">
+
+	          <%= f.text_field :nome %>
+	          <%= f.text_field :email %>
+	          <%= f.text_field :telefone %>
+	          <%= f.text_field :login %>
+	          <%= f.password_field :password %>
+	          <%= f.password_field :password_confirmation %>        
+
+	        
+	      </div>
+	    </div>
+	    <center>
+	          <%= f.submit value:'Cadastrar', class: 'btn btn-success btn-lg'%>
+	    </center>
+	 <% end %>
+
+
+
+

@@ -1,5 +1,6 @@
 class ProjetosController < ApplicationController
   before_action :set_projeto, only: [:show, :edit, :update, :destroy]
+  before_action :block_organization_access
 
   # GET /projetos
   # GET /projetos.json
