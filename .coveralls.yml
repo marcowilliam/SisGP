@@ -1,3 +1,2 @@
 service_name: travis-pro
-repo_token: jCqzLfuL09wGAjrGxrHmojKisd9yk8LCd
-COVERALLS_REPO_TOKEN=jCqzLfuL09wGAjrGxrHmojKisd9yk8LCd bundle exec rspec spec
+repo_token: 4KiJdmGDAdWbrWY37vtUZz8W0OvDL56ng
