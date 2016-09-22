@@ -4,7 +4,6 @@ services:
   - postgresql
 
 before_install: 
-  - cd SisGPWeb
   - psql -c 'create database travis_ci_test;' -U postgres
 
   

@@ -18,11 +18,10 @@ engines:
           mass_threshold: 18
 ratings:
   paths:
-  - SisGPWeb/app/**
-  - SisGPWeb/lib/**
+  - app/**
+  - lib/**
   - "**.rb"
   - "**.go"
 exclude_paths:
-- SisGPWeb/spec/**/*
-- SisGPmobile/**
+- spec/**/*
 - "**/vendor/**/*"
