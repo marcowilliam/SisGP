@@ -22,6 +22,9 @@ gem 'bootstrap_sb_admin_base_v2'
 gem 'bootstrap_form'
 gem 'bootstrap-datepicker-rails'
 
+#Respond for api work with json
+gem 'responders', '~> 2.0'
+
 
 gem 'materialize-sass'
 
@@ -70,4 +73,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
